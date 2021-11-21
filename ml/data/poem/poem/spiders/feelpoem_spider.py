@@ -4,8 +4,8 @@ from poem.items import PoemItem
 from scrapy.loader import ItemLoader
 
 
-class PoemSpider(scrapy.Spider):
-    name = "poem"
+class FeelpoemSpider(scrapy.Spider):
+    name = "feelpoem"
 
     def start_requests(self):
         for i in range(2647, 0, -1):
