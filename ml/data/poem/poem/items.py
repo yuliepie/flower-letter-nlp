@@ -4,15 +4,15 @@ from w3lib.html import remove_tags
 
 
 class PoemItem(scrapy.Item):
-    title = scrapy.Field(
+    author = scrapy.Field(
         input_processor=MapCompose(remove_tags),
         output_processor=TakeFirst(),
     )
-    author = scrapy.Field(
+    title = scrapy.Field(
         input_processor=MapCompose(remove_tags),
         output_processor=TakeFirst(),
     )
     content = scrapy.Field(
         input_processor=MapCompose(),
-        output_processor=Join(),
+        output_processor=Join(''),
     )
