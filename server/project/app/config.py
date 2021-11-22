@@ -12,6 +12,7 @@ class Settings(BaseModel):
     # Database settings
     mysql_uri = config("SQLALCHEMY_DATABASE_URL")
     mongo_uri = config("MONGO_URI")
+    mongo_db = config("MONGO_DB")
 
 
 CONFIG = Settings()

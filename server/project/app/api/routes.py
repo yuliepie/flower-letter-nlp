@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, status, HTTPException
 from models import schemas
+from models.book import ShowPoem, Poem
 import db
 from sqlalchemy.orm import Session
 from crud import crud_main
@@ -17,3 +18,9 @@ async def root(db: Session = Depends(get_db)):
 @router.post("/")
 async def create(request: schemas.Blog, db: Session = Depends(get_db)):
     return crud_main.create_blog(request, db)
+
+
+@router.post("/poems", response_model=ShowPoem)
+async def create_poem(request: ShowPoem):
+    poem = Poem(**request.dict())
+    return await poem.create()
