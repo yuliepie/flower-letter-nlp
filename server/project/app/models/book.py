@@ -30,7 +30,13 @@ class Flower(Document):
     keywords: List[str]
 
 
-class Poem(Document):
+class ShowPoem(BaseModel):
+    author: str
+    content: str
+    keywords: List[str]
+
+
+class Poem(Document, ShowPoem):
     """Poem DB representation"""
 
     author: str
