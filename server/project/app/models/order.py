@@ -1,6 +1,9 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Float
+from sqlalchemy.sql.expression import null
+from datetime import datetime
 from db import Base
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, Session
+from models.book import OrderDetail
 
 
 class Blog(Base):
@@ -32,10 +35,11 @@ class Order(Base):
     order_status = Column(Integer, ForeignKey("order_status.id"), nullable=False)
     order_date = Column(DateTime, nullable=False)
     price = Column(Float, nullable=False)
+    name = Column(String(10))
     address = Column(String(255), nullable=False)
     email = Column(String(50), nullable=False)
     phone = Column(String(20))
-    book_id = Column(String(15), nullable=False)
+    book_id = Column(String(24), nullable=False)
 
 
 class OrderStatus(Base):
@@ -52,3 +56,20 @@ class OrderStatus(Base):
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     status_name = Column(String(10), nullable=False)
     orders = relationship("Order", backref="status", lazy=True)
+
+
+# ===========
+# CRUD
+# ===========
+
+
+def create_order(order: OrderDetail, book_id: str, db: Session):
+    new_order = Order(**order.dict())
+    new_order.order_status = 1  # 결제완료 상태
+    new_order.order_date = datetime.now()
+    new_order.book_id = book_id
+
+    db.add(new_order)
+    db.commit()
+    db.refresh(new_order)
+    return new_order
