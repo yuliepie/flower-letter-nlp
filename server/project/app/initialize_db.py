@@ -2,7 +2,8 @@ import pymysql
 from dotenv import load_dotenv
 import os
 import sys
-from app import models, db_engine
+from models import models
+from db import engine
 
 load_dotenv()
 
@@ -41,7 +42,7 @@ curs.execute(
 
 
 # 테이블 생성
-models.Base.metadata.create_all(db_engine)
+models.Base.metadata.create_all(engine)
 
 print(f"{env_variables['DB_NAME']} 데이터베이스 생성 완료!")
 
