@@ -4,4 +4,6 @@ channels:
 dependencies:
   - numpy
   - jupyter
+  - matplotlib
+  - pandas
 prefix: /opt/miniconda3/envs/nlp3
