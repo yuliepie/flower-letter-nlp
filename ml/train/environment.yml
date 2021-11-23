@@ -1,0 +1,7 @@
+name: nlp3
+channels:
+  - defaults
+dependencies:
+  - numpy
+  - jupyter
+prefix: /opt/miniconda3/envs/nlp3
