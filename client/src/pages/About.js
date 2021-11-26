@@ -1,9 +1,11 @@
 import React from 'react';
+import SidebarComponent from '../components/SidebarComponent';
 
-const About = ({history}) =>{
+const About = () =>{
     return(
         <div>
             <p>소개 페이지</p>
+            <SidebarComponent></SidebarComponent>
         </div>
     );
 }

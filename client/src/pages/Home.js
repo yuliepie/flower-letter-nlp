@@ -1,8 +1,15 @@
 import React from 'react';
+import SidebarComponent from '../components/SidebarComponent';
+import Fullpage from '../components/Fullpage';
+
 
 const Home = ({history}) =>{
     return(
-        <div>Home 페이지</div>
+        <>
+          <SidebarComponent></SidebarComponent>
+          <Fullpage></Fullpage>
+
+        </>
     );
 }
 export default Home;
