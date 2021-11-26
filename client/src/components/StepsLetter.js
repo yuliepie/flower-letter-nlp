@@ -32,12 +32,7 @@ function StepsLetter() {
           </BreadcrumbItem>
 
           <BreadcrumbItem isCurrentPage>
-            <BreadcrumbLink
-              onClick={() => {
-                navigate('/checkout');
-              }}>
-              결제하기
-            </BreadcrumbLink>
+            <>결제하기</>
           </BreadcrumbItem>
         </Breadcrumb>
       </Center>
