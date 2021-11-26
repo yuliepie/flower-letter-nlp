@@ -1,10 +1,12 @@
 import React from 'react';
+import OrderPay from '../components/OrderPay';
 
-const Checkout =({history})=>{
-    return(
-        <div>
-            <h1> 체크아웃 페이지</h1>
-        </div>
-    );
-}
+const Checkout = ({ history }) => {
+  return (
+    <div>
+      <OrderPay></OrderPay>
+    </div>
+  );
+};
+
 export default Checkout;
