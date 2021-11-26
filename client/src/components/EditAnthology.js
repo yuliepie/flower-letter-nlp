@@ -1,53 +1,23 @@
-import {
-  Box,
-  Center,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  CloseButton,
-  Flex,
-  Stack,
-  Button,
-  Popover,
-  PopoverTrigger,
-  Portal,
-  PopoverContent,
-  PopoverArrow,
-  PopoverHeader,
-  PopoverCloseButton,
-  PopoverBody,
-} from '@chakra-ui/react';
+import React from 'react';
+import { Box, Center, Flex, Stack, Button, Popover, PopoverTrigger, Portal, PopoverContent, PopoverArrow, PopoverHeader, PopoverCloseButton, PopoverBody } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
+import StepsLetter from './StepsLetter';
+import { useNavigate } from 'react-router';
 
 // create의 세 번째인 시집을 편집하는 페이지입니다.
 function EditAnthology() {
+  const navigate = useNavigate();
+
   return (
     <div>
-      <Box p='6' w='100%' h='70'>
-        <CloseButton size='3xl' />
-      </Box>
-      <Center bg='gray' w='100%' h='100'>
-        <Breadcrumb fontSize='2xl' spacing='17' separator={<ChevronRightIcon color='white' />}>
-          <BreadcrumbItem>
-            <BreadcrumbLink href='#'>편지쓰기</BreadcrumbLink>
-          </BreadcrumbItem>
-
-          <BreadcrumbItem>
-            <BreadcrumbLink href='#'>각종단계</BreadcrumbLink>
-          </BreadcrumbItem>
-
-          <BreadcrumbItem isCurrentPage>
-            <BreadcrumbLink href='#'>시집검토</BreadcrumbLink>
-          </BreadcrumbItem>
-        </Breadcrumb>
-      </Center>
-
+      {/* 상단바 */}
+      <StepsLetter></StepsLetter>
       <Flex>
         <Box p='4' w='60%' h='730' bg='rgba(229, 229, 229, 1)'>
           시집이미지
           <Stack p='9' spacing={3}></Stack>
         </Box>
-        {/* 시 예시로 아무 시나 가져와서 텍스트 그대로 박아넣었습니다. 데이터로 교체 */}
+        {/* 시 예시 */}
         <Box p='4' w='40%' h='730'>
           <Box p='5' w='100%' h='80%' bg='white'>
             <Popover>
@@ -76,7 +46,12 @@ function EditAnthology() {
             </Popover>
           </Box>
           <Center w='100%' h='20%'>
-            <Button w='80%' colorScheme='blue'>
+            <Button
+              w='90%'
+              bg='skyblue'
+              onClick={() => {
+                navigate('/checkout');
+              }}>
               결제하러가기
             </Button>
           </Center>

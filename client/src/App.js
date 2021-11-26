@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Orders from './pages/Orders';
 import Checkout from './pages/Checkout';
 import Start from './pages/Start';
+import EditAnthology from './components/EditAnthology';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact={true} path='/' element={<Home />} />
         <Route exact={true} path='/about' element={<About />} />
         <Route exact={true} path='/create' element={<Create />} />
+        <Route exact={true} path='/create/edit' element={<EditAnthology />} />
         <Route exact={true} path='/question' element={<Question />} />
         <Route exact={true} path='/orders' element={<Orders />} />
         <Route exact={true} path='/checkout' element={<Checkout />} />
