@@ -2,8 +2,11 @@ import React from 'react';
 import SidebarComponent from '../components/SidebarComponent';
 import styled from 'styled-components';
 import { Container, Button } from '@chakra-ui/react';
+import { useNavigate } from 'react-router';
 
 const Start = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <SidebarComponent></SidebarComponent>
@@ -11,8 +14,12 @@ const Start = () => {
 
       <MainContainer>
         <LeftContanier>
-          <Button textAlign='center' justifyContent='center'>
-            {' '}
+          <Button
+            textAlign='center'
+            justifyContent='center'
+            onClick={() => {
+              navigate('/create');
+            }}>
             버튼
           </Button>
 
