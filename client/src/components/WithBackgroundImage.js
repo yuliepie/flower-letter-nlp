@@ -25,7 +25,7 @@ export default function WithBackgroundImage({
       backgroundPosition="center"
       backgroundSize="cover"
     >
-      <Stack maxW={"3xl"} align={"flex-start"} spacing={6}>
+      <Stack align={"flex-start"} spacing={6} alignItems={"center"}>
         <Text
           color={"white"}
           fontWeight={700}
@@ -34,16 +34,16 @@ export default function WithBackgroundImage({
         >
           {text}
         </Text>
-        <Stack direction={"row"}>
-          <Button
-            bg={"blue.400"}
-            rounded={"full"}
-            color={"white"}
-            _hover={{ bg: "blue.500" }}
-          >
-            {buttonName}
-          </Button>
-        </Stack>
+        {/* <Stack direction={"row"}> */}
+        <Button
+          bg={"blue.400"}
+          rounded={"full"}
+          color={"white"}
+          _hover={{ bg: "blue.500" }}
+        >
+          {buttonName}
+        </Button>
+        {/* </Stack> */}
       </Stack>
     </VStack>
   );
