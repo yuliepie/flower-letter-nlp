@@ -1,28 +1,18 @@
 import React from 'react';
-import { Box, Center, Breadcrumb, BreadcrumbItem, BreadcrumbLink, CloseButton, Flex, Stack, Input, Button, Textarea } from '@chakra-ui/react';
+import { Box, Center, Flex, Stack, Input, Button, Textarea } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
+import StepsLetter from './StepsLetter';
+import EditAnthology from '../components/EditAnthology';
+import { useNavigate } from 'react-router';
 
-function WriteLetter() {
+function WriteLetter({ history }) {
+  const navigate = useNavigate();
+
   return (
     <div>
-      <Box p='6' w='100%' h='70'>
-        <CloseButton size='3xl' />
-      </Box>
-      <Center bg='gray' w='100%' h='100'>
-        <Breadcrumb fontSize='2xl' spacing='17' separator={<ChevronRightIcon color='white' />}>
-          <BreadcrumbItem>
-            <BreadcrumbLink href='#'>편지쓰기</BreadcrumbLink>
-          </BreadcrumbItem>
+      {/* 상단바 */}
 
-          <BreadcrumbItem>
-            <BreadcrumbLink href='#'>각종단계</BreadcrumbLink>
-          </BreadcrumbItem>
-
-          <BreadcrumbItem isCurrentPage>
-            <BreadcrumbLink href='#'>시집검토</BreadcrumbLink>
-          </BreadcrumbItem>
-        </Breadcrumb>
-      </Center>
+      <StepsLetter></StepsLetter>
 
       <Flex>
         <Box p='4' w='70%' h='730'>
@@ -37,7 +27,12 @@ function WriteLetter() {
             <p>정당의 목적이나 활동이 민주적 기본질서에 위배될 때에는 정부는 헌법재판소에 그 해산을 제소할 수 있고, 정당은 헌법재판소의 심판에 의하여 해산된다.</p>
           </Box>
           <Center w='100%' h='20%'>
-            <Button w='80%' colorScheme='blue'>
+            <Button
+              w='90%'
+              bg='skyblue'
+              onClick={() => {
+                navigate('/create/edit');
+              }}>
               다음으로
             </Button>
           </Center>
