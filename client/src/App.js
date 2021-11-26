@@ -6,6 +6,7 @@ import Create from './pages/Create';
 import Home from './pages/Home';
 import Orders from './pages/Orders';
 import Checkout from './pages/Checkout';
+import Start from './pages/Start';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route exact={true} path = '/question' element={<Question/>} />
         <Route exact={true} path='/orders' element={<Orders/>}  />
         <Route exact={true} path ='/checkout' element={<Checkout/>} />
+        <Route exact={true} path = '/start' element={<Start/>} />
       </Routes>
 
     </div>
