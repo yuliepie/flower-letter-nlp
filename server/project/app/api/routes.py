@@ -1,6 +1,10 @@
 from beanie.odm.fields import PydanticObjectId
-from fastapi import APIRouter, Depends, status, HTTPException
-from models import schemas
+from fastapi import APIRouter, Depends, status, HTTPException, BackgroundTasks
+from fastapi_mail import FastMail, MessageSchema
+
+from config import CONFIG
+
+
 from models.book import (
     Poem,
     PoemModel,
@@ -9,9 +13,8 @@ from models.book import (
     FlowerModel,
     PoemFlowerList,
     BookModel,
-    Order,
 )
-from models import order
+from models.order import OrderIn, OrderOut, create_order
 import db
 from sqlalchemy.orm import Session
 
@@ -57,8 +60,10 @@ async def get_analyzed_results(request: Letter):
     return results
 
 
-@router.post("/orders")
-async def create_order(request: Order, db: Session = Depends(get_db)):
+@router.post("/orders", response_model=OrderOut)
+async def post_order(
+    background_tasks: BackgroundTasks, request: OrderIn, db: Session = Depends(get_db)
+):
     new_contents = []
     for req_content in request.book.contents:
         if req_content.type == "poem":
@@ -74,5 +79,28 @@ async def create_order(request: Order, db: Session = Depends(get_db)):
     )
 
     await new_book.create()
+    new_order = await create_order(request.order, new_book.id, db)
 
-    return order.create_order(request.order, new_book.id, db)
+    # 주문확인 이메일 전송
+    background_tasks.add_task(send_email, email="yuliekorea@gmail.com")
+
+    return new_order
+
+
+async def send_email(email: str):
+    # TODO: 예쁜 이메일 템플릿 만들기
+
+    html = """
+    <b>주문이 완료되었습니다.</b> 
+    <p>주문이 완료되었습니다!!</p> 
+    """
+    message = MessageSchema(
+        subject="주문이 완료되었습니다~~~",
+        recipients=[email],  # List of recipients
+        body=html,
+        subtype="html",
+    )
+
+    fm = FastMail(CONFIG.email_config)
+    await fm.send_message(message)
+    print("email sent successfully.")
