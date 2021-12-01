@@ -74,16 +74,3 @@ class BookModel(Document, Book):
 
     class Collection:
         name = "books"
-
-
-class OrderDetail(BaseModel):
-    price: float
-    name: str
-    address: str
-    email: str
-    phone: str
-
-
-class Order(BaseModel):
-    order: OrderDetail
-    book: Book
