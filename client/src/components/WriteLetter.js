@@ -32,7 +32,7 @@ function WriteLetter({ history }) {
               bg='skyblue'
               onClick={() => {
                 navigate('/create/edit');
-              }}>
+              }} >
               다음으로
             </Button>
           </Center>

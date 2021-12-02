@@ -8,6 +8,8 @@ import Orders from './pages/Orders';
 import Checkout from './pages/Checkout';
 import Start from './pages/Start';
 import EditAnthology from './components/EditAnthology';
+import Loading from './components/Loading';
+import HowToUse from './pages/HowToUse';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route exact={true} path='/orders' element={<Orders />} />
         <Route exact={true} path='/checkout' element={<Checkout />} />
         <Route exact={true} path='/start' element={<Start />} />
+        <Route exact={true} path='/loading' element={<Loading/>} />
+        <Route exact={true} path='/howtouse' element={<HowToUse />} />
       </Routes>
     </div>
   );

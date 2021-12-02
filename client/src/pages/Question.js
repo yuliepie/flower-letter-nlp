@@ -2,18 +2,20 @@ import React from 'react';
 import SidebarComponent from '../components/SidebarComponent';
 import { Container } from "@chakra-ui/react"
 import { Text } from "@chakra-ui/react"
-import { List, ListItem, ListIcon, UnorderedList } from "@chakra-ui/react"
+import { List, ListItem, ListIcon, UnorderedList,Flex, Box } from "@chakra-ui/react"
 import {ArrowRightIcon} from '@chakra-ui/icons';
+import WithBackgroundImage from '../components/WithBackgroundImage';
 
 const Question = ({history})=>{
     return(
-        <>
-            <SidebarComponent></SidebarComponent>               
-            <Container>
-                <Text fontSize="5xl">FAQ</Text>
-                <br/>
-                
-                <List spacing={3}>
+        <div style={{height:'100vh', overflow:'auto'}}>
+            <SidebarComponent></SidebarComponent>      
+            <WithBackgroundImage
+              backgroundcolor={"#613659"}
+              text={"Frequently Asked Question"}
+            />   
+            <Box justifyContent='center' textAlign='center' h='full' >       
+                <List spacing={3} justifyContent='center' textAlign='center' >
                     <ListItem fontSize='2xl'>
                       <ListIcon as={ArrowRightIcon} color="green.500" />
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit
@@ -32,9 +34,12 @@ const Question = ({history})=>{
                       Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
                     </ListItem>
                 </List>
-            </Container>
             
-        </>
+           
+            </Box>
+
+            
+        </div>
 
     );
 }
