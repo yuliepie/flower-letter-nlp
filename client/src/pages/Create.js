@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import WriteLetter from '../components/WriteLetter';
-import EditAnthology from '../components/EditAnthology';
+// import EditAnthology from '../components/EditAnthology';
 
 const Create = ({ history }) => {
   return (
