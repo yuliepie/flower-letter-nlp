@@ -27,12 +27,18 @@ function StepsLetter() {
               onClick={() => {
                 navigate('/create/edit');
               }}>
-              시집편집
+              키워드 선택
             </BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem isCurrentPage>
-            <>결제하기</>
+            <>꽃말 선택</>
+          </BreadcrumbItem>
+          <BreadcrumbItem isCurrentPage>
+            <>디자인</>
+          </BreadcrumbItem>
+          <BreadcrumbItem isCurrentPage>
+            <>시집검토</>
           </BreadcrumbItem>
         </Breadcrumb>
       </Center>

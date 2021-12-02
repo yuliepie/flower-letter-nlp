@@ -1,8 +1,13 @@
 import React, { useRef, useEffect } from "react";
 import "./Fullpage.css";
-import { Button } from "@chakra-ui/react";
+import { Button,Link } from "@chakra-ui/react";
 import { useNavigate } from "react-router";
 import WithBackgroundImage from "./WithBackgroundImage";
+import LeftImage from "./LeftImage";
+import ReviewComponent from "./ReviewComponent";
+import RightImage from "./RightImage";
+
+
 
 const DIVIDER_HEIGHT = 5;
 
@@ -10,6 +15,7 @@ function Fullpage() {
   const outerDivRef = useRef();
   const navigate = useNavigate();
 
+  /*
   useEffect(() => {
     const wheelHandler = (e) => {
       e.preventDefault();
@@ -81,32 +87,78 @@ function Fullpage() {
       outerDiveRefCurrent.removeEventListener("wheel", wheelHandler);
     };
   }, []);
+  */
 
   return (
-    <div ref={outerDivRef} className="outer">
-      <div className="inner be-yellow">
-        <WithBackgroundImage
-          buttonName={"About us"}
-          text={"소중한 사람에게 선물하는, 세상 가장 특별한 시집"}
+    <div className="outer">
+      {
+        /*
+        <div className="inner be-yellow">
+        <WithBackgroundImage 
+          //buttonName={"About us"}
+          text={"당신의 소중한 사람에게 가장 특별한 시집을 선물해보세요"}
           backgroundImg={"/img/mainPageFirstImg.png"}
         />
       </div>
-      <div className="divider"></div>
-      <div className="inner bg-blue">
-        <WithBackgroundImage
-          buttonName={"시집 만들러"}
-          backgroundImg={"/img/mainpageSecondImg.png"}
-          text={"그 사람에게 편지를 써보세요. 맞춤 시집을 만들어드려요."}
-        />
-      </div>
-      <div className="divider"></div>
-      <div className="inner bg-pink">
-        <WithBackgroundImage
-          buttonName={"문의하기"}
-          backgroundImg={"/img/mainpageThirdImg.png"}
-          text={"자주 묻는 질문들을 확인하고 제품 문의를 남겨보세요."}
-        />
-      </div>
+        */ 
+      }
+  
+      <WithBackgroundImage 
+        //buttonName={"About us"}
+        text={"당신의 소중한 사람에게 가장 특별한 시집을 선물해보세요"}
+        backgroundImg={"/img/mainPageFirstImg.png"}
+        textcolor={'white'}
+      />
+    
+      {/*<div className="divider"></div>*/}
+      
+      <WithBackgroundImage
+        h='full'
+        text={"편지를 쓰면 시집이 됩니다."}
+        link={'더 알아보기'}
+      />
+
+     
+      <RightImage
+        w='full'
+        h='700px'
+        imgUrl={"/img/mainPageFirstImg.png"}
+        text={'늘 당신과 함께하고 싶습니다'}
+        backgroundcolor={'#FBEDE0'}
+      />
+
+      <LeftImage 
+        w='full' 
+        h='700px' 
+        imgUrl={"/img/mainPageFirstImg.png"} 
+        text={"시의 각 단계별 커스터마이징 기능"}
+        backgroundImg={"/img/backgroundImg2_fall.png"}/>
+
+
+      <WithBackgroundImage
+       h='1400px'
+       text={"수아야 안녕? 나와 늘 함께해줘서 고마워"}
+       textcolor={"#613659"}
+       isbutton={true}
+       buttonName={"바로 시작하기"}
+       buttonColor={"#FBEDE0"}
+       buttonUrl={"/start"}
+
+      />
+      <ReviewComponent
+        backgroundcolor={"#613659"}
+        
+      />
+
+      <WithBackgroundImage
+        text={"더 궁금한 사항이 있으신가요?"}
+        isbutton={true}
+        buttonName={"바로가기"}
+        buttonColor={"#FBEDE0"}
+        buttonUrl={"/question"}/>
+
+     
+
     </div>
   );
 }
