@@ -80,6 +80,7 @@ class OrderOut(OrderDetail):
 
 
 async def create_order(order: OrderDetail, book_id: str, db: Session):
+    # TODO: Add constructor
     new_order = OrderModel(**order.dict())
     new_order.order_status = 1  # 결제완료 상태
     new_order.order_date = datetime.now()
