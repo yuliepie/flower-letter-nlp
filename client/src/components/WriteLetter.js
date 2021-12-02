@@ -4,14 +4,20 @@ import { ChevronRightIcon } from '@chakra-ui/icons';
 import StepsLetter from './StepsLetter';
 import EditAnthology from '../components/EditAnthology';
 import { useNavigate } from 'react-router';
+import OrderContainer from '../containers/OrderContainer';
 
 function WriteLetter({ history }) {
   const navigate = useNavigate();
 
   return (
     <div>
-      {/* 상단바 */}
+      <Box p='5' m='10'>
+        nonono
+        {/* <OrderContainer></OrderContainer> */}
+      </Box>
 
+      {/* 상단바 */}
+      {/* 
       <StepsLetter></StepsLetter>
 
       <Flex>
@@ -37,7 +43,7 @@ function WriteLetter({ history }) {
             </Button>
           </Center>
         </Box>
-      </Flex>
+      </Flex> */}
     </div>
   );
 }
