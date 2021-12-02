@@ -3,18 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter} from 'react-router-dom';
-import {ChakraProvider} from '@chakra-ui/react';
+import { BrowserRouter } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react';
+import { createStore } from 'redux'; //redux store
+import { Provider } from 'react-redux';
+import rootReducer from './modules';
+
+const store = createStore(rootReducer); // store 생성
+console.log(store.getState()); //store 상태 확인용
 
 ReactDOM.render(
   <ChakraProvider>
     <BrowserRouter>
       <React.StrictMode>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </React.StrictMode>
     </BrowserRouter>
-  </ChakraProvider>
-  ,
+  </ChakraProvider>,
   document.getElementById('root')
 );
 
