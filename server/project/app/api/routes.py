@@ -66,6 +66,7 @@ async def post_order(
 ):
     new_contents = []
     for req_content in request.book.contents:
+        # TODO: use enum class
         if req_content.type == "poem":
             poem = PoemPageModel(poem_id=PydanticObjectId(req_content.poem_id))
             new_contents.append(poem)
