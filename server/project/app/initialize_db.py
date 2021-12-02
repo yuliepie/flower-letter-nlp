@@ -5,6 +5,7 @@ import sys
 from models import Base
 from db import engine
 
+# TODO: env 통합
 load_dotenv()
 
 env_variables = {
