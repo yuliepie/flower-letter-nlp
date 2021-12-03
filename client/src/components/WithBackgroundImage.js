@@ -22,7 +22,8 @@ export default function WithBackgroundImage({
   isbutton=false,
   buttonColor,
   link,
-  buttonUrl
+  buttonUrl,
+  
 }) {
 
   const navigate = useNavigate()
@@ -51,6 +52,8 @@ export default function WithBackgroundImage({
         >
           {text}
         </Text>
+
+       
         
         {/* <Stack direction={"row"}> */}
         {
