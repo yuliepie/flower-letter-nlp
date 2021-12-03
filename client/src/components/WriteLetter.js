@@ -4,17 +4,21 @@ import { ChevronRightIcon } from '@chakra-ui/icons';
 import StepsLetter from './StepsLetter';
 import EditAnthology from '../components/EditAnthology';
 import { useNavigate } from 'react-router';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 
 function WriteLetter({ history }) {
   const navigate = useNavigate();
 
   const dispatch = useDispatch()
+  const { letter_title, letter_content } = useSelector((state) => ({
+    letter_title: state.letter_title,
+    letter_content: state.letter_content,
+  }));
 
   const [inputs, setInputs] = useState({
-    title:'',
-    content:''
+    title:letter_title,
+    content:letter_content
   })
 
   const {title,content} = inputs
