@@ -18,10 +18,18 @@ import {
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import StepsLetter from "./StepsLetter";
 import { useNavigate } from "react-router";
+import {useSelector} from 'react-redux';
 
 // create의 세 번째인 시집을 편집하는 페이지입니다.
 function EditAnthology() {
   const navigate = useNavigate();
+
+  const { title, content } = useSelector((state) => ({
+    title: state.letter_title,
+    content: state.letter_content,
+  }));
+  
+
   const examplePoem = (
     <Box padding="2">
       <Popover>
