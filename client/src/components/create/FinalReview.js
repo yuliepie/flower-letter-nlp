@@ -17,7 +17,7 @@ export default function FinalReview() {
           {/* 오른쪽 박스 */}
         </Flex>
       </HStack>
-      <EditContainer prevLink={'/edit4'} nextLink={'/orders'} />
+      <EditContainer prevLink={'/create/freecontent'} nextLink={'/orders'} />
     </div>
   );
 }

@@ -17,7 +17,7 @@ export default function FlowerLang() {
           {/* 오른쪽 박스 */}
         </Flex>
       </HStack>
-      <EditContainer prevLink={'/edit1'} nextLink={'/edit3'} />
+      <EditContainer prevLink={'/create/keyword'} nextLink={'/create/bookcover'} />
     </div>
   );
 }

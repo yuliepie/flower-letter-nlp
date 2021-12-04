@@ -11,7 +11,11 @@ function StepsLetter() {
     <VStack w='100%' h='20vh' pl='7' pr='7'>
       <Flex w='100%' h='35%' align='center' pl='6'>
         {/* 닫기 버튼 */}
-        <CloseButton size='2xl'></CloseButton>
+        <CloseButton
+          size='2xl'
+          onClick={() => {
+            navigate('/');
+          }}></CloseButton>
       </Flex>
       <Flex bg='gray' fontWeight='600' color='white' w='100%' h='65%' align='center' justify='center' borderRadius='20px'>
         {/* 단계 박스 */}
@@ -29,7 +33,7 @@ function StepsLetter() {
             x
             <BreadcrumbLink
               onClick={() => {
-                navigate('/edit1');
+                navigate('/create/keyword');
               }}>
               키워드 선택
             </BreadcrumbLink>
@@ -38,7 +42,7 @@ function StepsLetter() {
           <BreadcrumbItem isCurrentPage>
             <BreadcrumbLink
               onClick={() => {
-                navigate('/edit2');
+                navigate('/create/flowerlang');
               }}>
               꽃말 선택
             </BreadcrumbLink>
@@ -46,7 +50,7 @@ function StepsLetter() {
           <BreadcrumbItem isCurrentPage>
             <BreadcrumbLink
               onClick={() => {
-                navigate('/edit3');
+                navigate('/create/bookcover');
               }}>
               디자인
             </BreadcrumbLink>
@@ -54,7 +58,7 @@ function StepsLetter() {
           <BreadcrumbItem isCurrentPage>
             <BreadcrumbLink
               onClick={() => {
-                navigate('/edit4');
+                navigate('/create/freecontent');
               }}>
               자유 글쓰기
             </BreadcrumbLink>
@@ -62,7 +66,7 @@ function StepsLetter() {
           <BreadcrumbItem isCurrentPage>
             <BreadcrumbLink
               onClick={() => {
-                navigate('/edit5');
+                navigate('/create/final');
               }}>
               시집검토
             </BreadcrumbLink>

@@ -25,7 +25,7 @@ function WriteLetter({ history }) {
 
   const clickNextButton = () => {
     dispatch({ type: 'SAVE_LETTER', title, content });
-    navigate('/edit1');
+    navigate('/create/keyword');
   };
 
   const handleChange = (e) => {
