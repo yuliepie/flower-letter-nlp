@@ -1,8 +1,8 @@
 import React from 'react';
-import { Flex, Box, Center, Breadcrumb, BreadcrumbItem, BreadcrumbLink, CloseButton, VStack, HStack } from '@chakra-ui/react';
+import { Flex, Breadcrumb, BreadcrumbItem, BreadcrumbLink, CloseButton, VStack } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router';
-import EditContainer from './create/EditContainer';
+import { NavLink } from 'react-router-dom';
 
 function StepsLetter() {
   const navigate = useNavigate();
@@ -25,17 +25,20 @@ function StepsLetter() {
               onClick={() => {
                 navigate('/create');
               }}>
-              편지쓰기
+              <NavLink exact end to='/create'>
+                편지쓰기
+              </NavLink>
             </BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            x
             <BreadcrumbLink
               onClick={() => {
                 navigate('/create/keyword');
               }}>
-              키워드 선택
+              <NavLink exact to='/create/keyword'>
+                키워드 선택
+              </NavLink>
             </BreadcrumbLink>
           </BreadcrumbItem>
 
@@ -44,31 +47,42 @@ function StepsLetter() {
               onClick={() => {
                 navigate('/create/flowerlang');
               }}>
-              꽃말 선택
+              <NavLink exact to='/create/flowerlang'>
+                꽃말 선택
+              </NavLink>
             </BreadcrumbLink>
           </BreadcrumbItem>
+
           <BreadcrumbItem isCurrentPage>
             <BreadcrumbLink
               onClick={() => {
                 navigate('/create/bookcover');
               }}>
-              디자인
+              <NavLink exact to='/create/bookcover'>
+                디자인
+              </NavLink>
             </BreadcrumbLink>
           </BreadcrumbItem>
+
           <BreadcrumbItem isCurrentPage>
             <BreadcrumbLink
               onClick={() => {
                 navigate('/create/freecontent');
               }}>
-              자유 글쓰기
+              <NavLink exact to='/create/freecontent'>
+                자유 글쓰기
+              </NavLink>
             </BreadcrumbLink>
           </BreadcrumbItem>
+
           <BreadcrumbItem isCurrentPage>
             <BreadcrumbLink
               onClick={() => {
                 navigate('/create/final');
               }}>
-              시집검토
+              <NavLink exact to='/create/final'>
+                시집검토
+              </NavLink>
             </BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>
@@ -78,70 +92,3 @@ function StepsLetter() {
 }
 
 export default StepsLetter;
-
-{
-  /*
-<div>
-      <Box p='6' w='100%' h='70'>
-        <CloseButton size='3xl' />
-      </Box>
-      <Center bg='gray' w='100%' h='100'>
-        <Breadcrumb fontSize='2xl' spacing='17' separator={<ChevronRightIcon color='white' />}>
-          <BreadcrumbItem>
-            <BreadcrumbLink
-              onClick={() => {
-                navigate('/create');
-              }}>
-              편지쓰기
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-
-          <BreadcrumbItem>x
-            <BreadcrumbLink
-              onClick={() => {
-                navigate('/edit1');
-              }}>
-              키워드 선택
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-
-          <BreadcrumbItem isCurrentPage>
-            <BreadcrumbLink
-              onClick={() => {
-                navigate('/edit2');
-              }}>
-              꽃말 선택
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbItem isCurrentPage>
-            <BreadcrumbLink
-              onClick={() => {
-                navigate('/edit3');
-              }}>
-              디자인
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbItem isCurrentPage>
-            <BreadcrumbLink
-              onClick={() => {
-                navigate('/edit4');
-              }}>
-              자유 글쓰기
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbItem isCurrentPage>
-            <BreadcrumbLink
-              onClick={() => {
-                navigate('/edit5');
-              }}>
-              시집검토
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-        </Breadcrumb>
-      </Center>
-    </div>
-
-
-
-*/
-}
