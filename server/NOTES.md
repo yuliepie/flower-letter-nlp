@@ -7,10 +7,18 @@ alembic revision --autogenerate -m "init" # generate migration
 
 alembic upgrade head # apply migration
 ```
-NOTE: if for some reason generating migration doesn't work, try running application before.
+NOTE: if for some reason generating migration doesn't work, try opening new shell.
 
 ### docker:
 ```bash
 $ docker-compose down -v
 $ docker-compose up -d --build
+```
+Copy & run db script
+```bash
+docker-compose cp ./project/util/seed.sql postgres_db:/seed.sql
+
+$ docker-compose exec postgres_db psql --username=flower_letter --dbname=flower_letter
+
+\i seed.sql
 ```
