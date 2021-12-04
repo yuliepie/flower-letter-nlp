@@ -44,7 +44,7 @@ export default function EditContainer({ prevLink, nextLink }) {
 {
   /*
 
-
+이전코드
 <Flex>
       <Center p='4' w='60%' h='730' bg='rgba(229, 229, 229, 1)'>
         <Center boxSize='sm'>
