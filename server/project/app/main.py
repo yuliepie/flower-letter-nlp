@@ -16,9 +16,6 @@ app = FastAPI()
 async def app_init():
     """Initialize application services"""
 
-    # init SQL db
-    await init_db()
-
     # connect mongoDB
     mongo_client = AsyncIOMotorClient(CONFIG.mongo_uri)
     await init_beanie(
