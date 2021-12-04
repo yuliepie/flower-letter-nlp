@@ -17,9 +17,14 @@ from app.models.book import (
 )
 from app.models.order import OrderIn, OrderOut, create_order
 from app.db import get_db
-from sqlalchemy.orm import Session
+from sqlalchemy.ext.asyncio import AsyncSession
 
 router = APIRouter(prefix="/api", tags=["Routes"])
+
+
+# ================
+# API Routes
+# ================
 
 
 @router.post("/poems", response_model=Poem)
@@ -61,7 +66,9 @@ async def get_analyzed_results(request: Letter):
 
 @router.post("/orders", response_model=OrderOut)
 async def post_order(
-    background_tasks: BackgroundTasks, request: OrderIn, db: Session = Depends(get_db)
+    background_tasks: BackgroundTasks,
+    request: OrderIn,
+    db: AsyncSession = Depends(get_db),
 ):
     new_contents = []
     for req_content in request.book.contents:

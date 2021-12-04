@@ -17,7 +17,7 @@ async def app_init():
     """Initialize application services"""
 
     # init SQL db
-    init_db()
+    await init_db()
 
     # connect mongoDB
     mongo_client = AsyncIOMotorClient(CONFIG.mongo_uri)
