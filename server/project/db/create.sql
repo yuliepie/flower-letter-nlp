@@ -1,0 +1,2 @@
+CREATE DATABASE flower_letter_dev;
+CREATE DATABASE flower_letter_test;

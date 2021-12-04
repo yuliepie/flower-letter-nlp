@@ -13,7 +13,11 @@ NOTE: if for some reason generating migration doesn't work, try opening new shel
 ```bash
 $ docker-compose down -v
 $ docker-compose up -d --build
+
+docker-compose logs web # see logs
 ```
+
+
 Copy & run db script
 ```bash
 docker-compose cp ./project/util/seed.sql postgres_db:/seed.sql
