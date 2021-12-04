@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import "./Fullpage.css";
+
 import { Button,Link } from "@chakra-ui/react";
 import { useNavigate } from "react-router";
 import WithBackgroundImage from "./WithBackgroundImage";
@@ -90,7 +90,7 @@ function Fullpage() {
   */
 
   return (
-    <div className="outer">
+    <div style={{height:'100vh', overflow:'auto' }}>
       {
         /*
         <div className="inner be-yellow">
