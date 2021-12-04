@@ -3,17 +3,25 @@ FastAPI server configuration
 """
 
 from decouple import config
-from pydantic import BaseModel
+from pydantic import BaseSettings, AnyUrl
 from fastapi_mail import ConnectionConfig
 
+import logging
+from functools import lru_cache
 
-class Settings(BaseModel):
+log = logging.getLogger("uvicorn")
+
+
+class Settings(BaseSettings):
     """Server config settings"""
 
+    environment: str = config("ENVIRONMENT", "dev")  # defaults to dev env
+    testing: bool = config("TESTING", 0)  # whether testing mode
+
     # Database settings
-    sqldb_uri = config("SQLALCHEMY_DATABASE_URL")
-    mongo_uri = config("MONGO_URI")
-    mongo_db = config("MONGO_DB")
+    sqldb_uri: AnyUrl = config("SQL_DB_DEV")
+    mongo_uri: AnyUrl = config("MONGO_URI")
+    mongo_db = config("MONGO_DB_DEV")
 
     # Email settings
     email_config = ConnectionConfig(
@@ -28,4 +36,5 @@ class Settings(BaseModel):
     )
 
 
+log.info("Loading config settings from the environment...")
 CONFIG = Settings()
