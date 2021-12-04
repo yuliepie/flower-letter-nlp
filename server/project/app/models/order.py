@@ -1,9 +1,8 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Float
-from sqlalchemy.sql.expression import null
 from datetime import datetime
-from db import Base
+from app.db import Base
 from sqlalchemy.orm import relationship, Session
-from models.book import Book
+from app.models.book import Book
 from pydantic import BaseModel
 
 

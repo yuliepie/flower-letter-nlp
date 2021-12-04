@@ -2,11 +2,12 @@ from beanie.odm.fields import PydanticObjectId
 from fastapi import APIRouter, Depends, status, HTTPException, BackgroundTasks
 from fastapi_mail import FastMail, MessageSchema
 
-from config import CONFIG
+from app.config import CONFIG
 
 
-from models.book import (
+from app.models.book import (
     Poem,
+    PoemIn,
     PoemModel,
     PoemPageModel,
     Letter,
@@ -14,17 +15,15 @@ from models.book import (
     PoemFlowerList,
     BookModel,
 )
-from models.order import OrderIn, OrderOut, create_order
-import db
+from app.models.order import OrderIn, OrderOut, create_order
+from app.db import get_db
 from sqlalchemy.orm import Session
 
 router = APIRouter(prefix="/api", tags=["Routes"])
 
-get_db = db.get_db
-
 
 @router.post("/poems", response_model=Poem)
-async def create_poem(request: Poem):
+async def create_poem(request: PoemIn):
     poem = PoemModel(**request.dict())
     return await poem.create()
 
@@ -80,7 +79,7 @@ async def post_order(
     )
 
     await new_book.create()
-    new_order = await create_order(request.order, new_book.id, db)
+    new_order = await create_order(request.order, str(new_book.id), db)
 
     # 주문확인 이메일 전송
     background_tasks.add_task(send_email, "yuliekorea@gmail.com", new_order)
