@@ -1,7 +1,8 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Float
 from datetime import datetime
 from app.db import Base
-from sqlalchemy.orm import relationship, Session
+from sqlalchemy.orm import relationship
+from sqlalchemy.ext.asyncio import AsyncSession
 from app.models.book import Book
 from pydantic import BaseModel
 
@@ -78,7 +79,7 @@ class OrderOut(OrderDetail):
 # ===========
 
 
-async def create_order(order: OrderDetail, book_id: str, db: Session):
+async def create_order(order: OrderDetail, book_id: str, db: AsyncSession):
     # TODO: Add constructor
     new_order = OrderModel(**order.dict())
     new_order.order_status = 1  # 결제완료 상태
@@ -86,6 +87,6 @@ async def create_order(order: OrderDetail, book_id: str, db: Session):
     new_order.book_id = book_id
 
     db.add(new_order)
-    db.commit()
-    db.refresh(new_order)
+    await db.commit()
+    await db.refresh(new_order)
     return new_order
