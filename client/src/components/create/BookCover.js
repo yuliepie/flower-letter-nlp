@@ -17,7 +17,7 @@ export default function BookCover() {
           {/* 오른쪽 박스 */}
         </Flex>
       </HStack>
-      <EditContainer prevLink={'/edit2'} nextLink={'/edit4'} />
+      <EditContainer prevLink={'/create/flowerlang'} nextLink={'/create/freecontent'} />
     </div>
   );
 }

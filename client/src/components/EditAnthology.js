@@ -36,7 +36,7 @@ function EditAnthology() {
           </Box>
         </Flex>
       </HStack>
-      <EditContainer prevLink={'/create'} nextLink={'/edit2'} />
+      <EditContainer prevLink={'/create'} nextLink={'/create/flowerlang'} />
     </div>
   );
 }

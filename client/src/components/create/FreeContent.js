@@ -17,7 +17,7 @@ export default function FreeContent() {
           {/* 오른쪽 박스 */}
         </Flex>
       </HStack>
-      <EditContainer prevLink={'/edit3'} nextLink={'/edit5'} />
+      <EditContainer prevLink={'/create/bookcover'} nextLink={'/create/final'} />
     </div>
   );
 }
