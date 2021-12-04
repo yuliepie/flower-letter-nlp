@@ -14,6 +14,10 @@ import HowToUse from './pages/HowToUse';
 
 import { Provider } from 'react-redux';
 import reducer from './reducer/reducer';
+import FlowerLang from './components/create/FlowerLang';
+import BookCover from './components/create/BookCover';
+import FreeContent from './components/create/FreeContent';
+import FinalReview from './components/create/FinalReview';
 
 const store = createStore(reducer)
 
@@ -25,7 +29,11 @@ function App() {
           <Route exact={true} path='/' element={<Home />} />
           <Route exact={true} path='/about' element={<About />} />
           <Route exact={true} path='/create' element={<Create />} />
-          <Route exact={true} path='/create/edit' element={<EditAnthology />} />
+          <Route exact={true} path='/edit1' element={<EditAnthology />} />
+          <Route exact={true} path='/edit2' element={<FlowerLang/>} />
+          <Route exact={true} path='/edit3' element={<BookCover/>} />
+          <Route exact={true} path='/edit4' element={<FreeContent/>} />
+          <Route exact={true} path='/edit5' element={<FinalReview/>} />
           <Route exact={true} path='/question' element={<Question />} />
           <Route exact={true} path='/orders' element={<Orders />} />
           <Route exact={true} path='/checkout' element={<Checkout />} />

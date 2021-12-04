@@ -26,7 +26,7 @@ function WriteLetter({ history }) {
   const clickNextButton = ()=>{
     
     dispatch({type:"SAVE_LETTER",title,content})
-    navigate("/create/edit")
+    navigate("/edit1")
 
   }
 

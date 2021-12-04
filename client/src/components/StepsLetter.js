@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router';
 function StepsLetter() {
   const navigate = useNavigate();
 
+
   return (
     <div>
       <Box p='6' w='100%' h='70'>
@@ -22,23 +23,46 @@ function StepsLetter() {
             </BreadcrumbLink>
           </BreadcrumbItem>
 
-          <BreadcrumbItem>
+          <BreadcrumbItem>x
             <BreadcrumbLink
               onClick={() => {
-                navigate('/create/edit');
+                navigate('/edit1');
               }}>
               키워드 선택
             </BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem isCurrentPage>
-            <>꽃말 선택</>
+            <BreadcrumbLink
+              onClick={() => {
+                navigate('/edit2');
+              }}>
+              꽃말 선택
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbItem isCurrentPage>
-            <>디자인</>
+            <BreadcrumbLink
+              onClick={() => {
+                navigate('/edit3');
+              }}>
+              디자인
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbItem isCurrentPage>
-            <>시집검토</>
+            <BreadcrumbLink
+              onClick={() => {
+                navigate('/edit4');
+              }}>
+              자유 글쓰기
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbItem isCurrentPage>
+            <BreadcrumbLink
+              onClick={() => {
+                navigate('/edit5');
+              }}>
+              시집검토
+            </BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>
       </Center>
