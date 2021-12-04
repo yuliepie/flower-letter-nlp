@@ -1,69 +1,61 @@
-import React,{useState} from 'react';
-import { Box, Center, Flex, Stack, Input, Button, Textarea } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { CloseButton, Box, Center, Spacer, Flex, Stack, Input, Button, Textarea, VStack, HStack, Breadcrumb, BreadcrumbLink, BreadcrumbItem } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import StepsLetter from './StepsLetter';
 import EditAnthology from '../components/EditAnthology';
+import EditContainer from './create/EditContainer';
 import { useNavigate } from 'react-router';
-import {useDispatch, useSelector} from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
 
 function WriteLetter({ history }) {
   const navigate = useNavigate();
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const { letter_title, letter_content } = useSelector((state) => ({
     letter_title: state.letter_title,
     letter_content: state.letter_content,
   }));
 
   const [inputs, setInputs] = useState({
-    title:letter_title,
-    content:letter_content
-  })
+    title: letter_title,
+    content: letter_content,
+  });
 
-  const {title,content} = inputs
+  const { title, content } = inputs;
 
-  const clickNextButton = ()=>{
-    
-    dispatch({type:"SAVE_LETTER",title,content})
-    navigate("/create/edit")
+  const clickNextButton = () => {
+    dispatch({ type: 'SAVE_LETTER', title, content });
+    navigate('/create/keyword');
+  };
 
-  }
-
-  const handleChange = (e) =>{
+  const handleChange = (e) => {
     setInputs({
       ...inputs,
-      [e.target.name] : e.target.value
-    })
-  }
- 
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <div>
-      
       <StepsLetter></StepsLetter>
-
-      <Flex>
-        <Box p='4' w='70%' h='730'>
-          <Stack p='9' spacing={3}>
-            <Input placeholder='편지 제목' h='48px' size='sm' borderColor='black' onChange={handleChange} name='title' value={title}/>
-            <Textarea h='540px' borderColor='black' placeholder='편지작성' onChange={handleChange} name='content' value={content}/>
-          </Stack>
-        </Box>
-        <Box p='5' w='30%' h='730'>
-          <Box p='5' w='100%' h='80%' bg='white'>
-            <p>정당의 목적이나 활동이 민주적 기본질서에 위배될 때에는 정부는 헌법재판소에 그 해산을 제소할 수 있고, 정당은 헌법재판소의 심판에 의하여 해산된다.</p>
-            <p>정당의 목적이나 활동이 민주적 기본질서에 위배될 때에는 정부는 헌법재판소에 그 해산을 제소할 수 있고, 정당은 헌법재판소의 심판에 의하여 해산된다.</p>
+      <HStack h='900px' p='2' ml='5' mr='5' mb='2' align='center' justify='center'>
+        <Flex w='60%' h='100%' border='1px' borderRadius='10px' mr='1' mt='5'>
+          {/* 왼쪽 박스 */}
+          <Box p='6' w='100%'>
+            <Stack spacing={3} h='100%'>
+              <Input placeholder='편지 제목' h='7vh' size='sm' borderColor='black' onChange={handleChange} name='title' value={title} />
+              <Textarea h='100%' borderColor='black' placeholder='편지작성' onChange={handleChange} name='content' value={content} />
+            </Stack>
           </Box>
-          <Center w='100%' h='20%'>
-            <Button
-              w='90%'
-              bg='skyblue'
-              onClick={clickNextButton} >
-              다음으로
-            </Button>
-          </Center>
-        </Box>
-      </Flex> 
+        </Flex>
+      </HStack>
+
+      <Center w='100%' h='20%'>
+        <Spacer />
+        <Button mr='7' w='30vh' h='7vh' mb='2' fontSize='3vh' bg='skyblue' color='white' onClick={clickNextButton}>
+          다음으로
+        </Button>
+      </Center>
     </div>
   );
 }
