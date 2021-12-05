@@ -58,27 +58,30 @@ function OrderPay({ history }) {
         </Box>
         <Box bg='#D4BBDD' w='300px' h='800'>
           <VStack p='4'>
-            <Box bg='red' w='100%' h='100'>
+            <Box w='100%' h='30'>
               <Heading size='md' align='center'>
                 결제정보
               </Heading>
             </Box>
-            <Box bg='orange' w='100%' h='100'>
+            <Box w='100%' h='200' border='1px'>
               시집이미지
             </Box>
-            <Box bg='yellow' w='100%' h='100'>
+            <Box w='100%' h='420' border='1px'>
               결제된 내용
             </Box>
-            <Box bg='blue' w='100%' h='100'>
-              결제하기버튼
+            <Box w='100%' align='center' justify='center'>
               <Button colorScheme='blue' m='1' w='90%' onClick={onClickPayButton}>
                 결제하기
               </Button>
-              <CloseButton
-                size='2xl'
+              <Button
+                colorScheme='blue'
+                m='1'
+                w='90%'
                 onClick={() => {
                   navigate('/');
-                }}></CloseButton>
+                }}>
+                결제취소
+              </Button>
             </Box>
           </VStack>
         </Box>
