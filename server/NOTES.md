@@ -26,3 +26,9 @@ $ docker-compose exec postgres_db psql --username=flower_letter --dbname=flower_
 
 \i seed.sql
 ```
+
+### Tests
+Run test:
+```bash
+$ docker-compose exec web pytest .
+```

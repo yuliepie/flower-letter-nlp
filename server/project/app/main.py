@@ -1,26 +1,25 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from app.api import main_router
 
-from app.db import init_db
-from motor.motor_asyncio import AsyncIOMotorClient
-from beanie import init_beanie
-from app.models.book import PoemModel, FlowerModel, BookModel
-
-from app.config import CONFIG
+from app.db import init_mongo
 
 
-app = FastAPI()
+def create_application() -> FastAPI:
+    application = FastAPI()
+    application.include_router(main_router)
+
+    return application
+
+
+app = create_application()
 
 
 @app.on_event("startup")
 async def app_init():
     """Initialize application services"""
+    await init_mongo()
 
-    # connect mongoDB
-    mongo_client = AsyncIOMotorClient(CONFIG.mongo_uri)
-    await init_beanie(
-        mongo_client[CONFIG.mongo_db],
-        document_models=[PoemModel, FlowerModel, BookModel],
-    )
 
-    app.include_router(main_router)
+@app.get("/ping")
+async def say_hi():
+    return {"hello": "world!"}

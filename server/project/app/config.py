@@ -20,7 +20,7 @@ class Settings(BaseSettings):
 
     # Database settings
     sqldb_uri: AnyUrl = config("SQL_DB_DEV")
-    mongo_uri: AnyUrl = config("MONGO_URI")
+    mongo_uri: str = config("MONGO_URI")
     mongo_db = config("MONGO_DB_DEV")
 
     # Email settings
@@ -36,5 +36,7 @@ class Settings(BaseSettings):
     )
 
 
-log.info("Loading config settings from the environment...")
-CONFIG = Settings()
+@lru_cache()
+def get_config() -> BaseSettings:
+    log.info("Loading config settings from the environment...")
+    return Settings()
