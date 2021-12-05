@@ -2,7 +2,7 @@ from beanie.odm.fields import PydanticObjectId
 from fastapi import APIRouter, Depends, status, HTTPException, BackgroundTasks
 from fastapi_mail import FastMail, MessageSchema
 
-from app.config import CONFIG
+from app.config import Settings, get_config
 
 
 from app.models.book import (
@@ -64,7 +64,7 @@ async def get_analyzed_results(request: Letter):
     return results
 
 
-@router.post("/orders", response_model=OrderOut)
+@router.post("/orders", response_model=OrderOut, status_code=201)
 async def post_order(
     background_tasks: BackgroundTasks,
     request: OrderIn,
@@ -94,7 +94,9 @@ async def post_order(
     return new_order
 
 
-async def send_email(email: str, order_details: OrderOut):
+async def send_email(
+    email: str, order_details: OrderOut, config: Settings = Depends(get_config)
+):
     # TODO: 예쁜 이메일 템플릿 만들기
 
     html = """
@@ -110,6 +112,6 @@ async def send_email(email: str, order_details: OrderOut):
         subtype="html",
     )
 
-    fm = FastMail(CONFIG.email_config)
+    fm = FastMail(config.email_config)
     await fm.send_message(message)
     print("email sent successfully.")
