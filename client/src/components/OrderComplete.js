@@ -1,7 +1,9 @@
 import React from 'react';
 import { Box, VStack, Button, Text } from '@chakra-ui/react';
+import { useNavigate } from 'react-router';
 
 function OrderComplete({ history }) {
+  const navigate = useNavigate();
   return (
     <>
       <VStack w='100%' h='100vh' align='center' justifyContent='center'>
@@ -19,7 +21,13 @@ function OrderComplete({ history }) {
               <Text m='3px'>빠르게 제작하여 보내드릴게요!</Text>
             </Box>
           </VStack>
-          <Button bgGradient='linear(to-r, orange.200, yellow.300, green.200, teal.200 )' color='white' w='150px'>
+          <Button
+            onClick={() => {
+              navigate('/');
+            }}
+            bgGradient='linear(to-r, orange.200, yellow.300, green.200, teal.200 )'
+            color='white'
+            w='150px'>
             홈으로!
           </Button>
         </Box>
