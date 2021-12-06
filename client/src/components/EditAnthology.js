@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import PoemContainer from './create/PoemContainer';
 import EditContainer from './create/EditContainer';
-import { Button, HStack, Flex, Slider, SliderTrack, SliderFilledTrack, SliderThumb, Box } from '@chakra-ui/react';
+import { Button, HStack, Flex, Slider, SliderTrack, SliderFilledTrack, SliderThumb, Box, Spacer } from '@chakra-ui/react';
 
 function EditAnthology() {
   const navigate = useNavigate();
@@ -36,7 +36,19 @@ function EditAnthology() {
           </Box>
         </Flex>
       </HStack>
-      <EditContainer prevLink={'/create'} nextLink={'/create/flowerlang'} />
+      <Flex pl='6' pr='6' h='10%' w='100%'>
+      <Box>
+        <Button w='30vh' h='7vh' bg='skyblue' color='white' fontSize='3vh' onClick={() => { navigate('/create'); }}>
+          이전 단계
+        </Button>
+      </Box>
+      <Spacer />
+      <Box>
+        <Button w='30vh' h='7vh' bg='skyblue' color='white' fontSize='3vh' onClick={() => { navigate('/create/flowerlang'); }}> 
+        다음 단계
+        </Button>
+      </Box>
+    </Flex>
     </div>
   );
 }
