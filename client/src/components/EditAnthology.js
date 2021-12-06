@@ -1,19 +1,23 @@
 import React, { useEffect } from 'react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import StepsLetter from './StepsLetter';
-import { useNavigate, useParams } from 'react-router';
+import { useLocation, useNavigate, useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import PoemContainer from './create/PoemContainer';
 import EditContainer from './create/EditContainer';
-import { Button, HStack, VStack, Flex, Box, Spacer } from '@chakra-ui/react';
+import { Button, HStack, Flex, Box, Spacer,VStack } from '@chakra-ui/react';
 
 function EditAnthology() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const { title, content } = useSelector((state) => ({
     title: state.letter_title,
     content: state.letter_content,
   }));
+  
+
+  
 
   return (
     <div>
@@ -57,34 +61,18 @@ function EditAnthology() {
         </VStack>
       </HStack>
       <Flex pl='6' pr='6' h='10%' w='100%'>
-        <Box>
-          <Button
-            w='30vh'
-            h='7vh'
-            bg='skyblue'
-            color='white'
-            fontSize='3vh'
-            onClick={() => {
-              navigate('/create');
-            }}>
-            이전 단계
-          </Button>
-        </Box>
-        <Spacer />
-        <Box>
-          <Button
-            w='30vh'
-            h='7vh'
-            bg='skyblue'
-            color='white'
-            fontSize='3vh'
-            onClick={() => {
-              navigate('/create/flowerlang');
-            }}>
-            다음 단계
-          </Button>
-        </Box>
-      </Flex>
+      <Box>
+        <Button w='30vh' h='7vh' bg='skyblue' color='white' fontSize='3vh' onClick={() => { navigate('/create'); }}>
+          이전 단계
+        </Button>
+      </Box>
+      <Spacer />
+      <Box>
+        <Button w='30vh' h='7vh' bg='skyblue' color='white' fontSize='3vh' onClick={() => { navigate('/create/flowerlang'); }}> 
+        다음 단계
+        </Button>
+      </Box>
+    </Flex>
     </div>
   );
 }

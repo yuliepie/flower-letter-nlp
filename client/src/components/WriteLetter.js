@@ -6,6 +6,7 @@ import EditAnthology from '../components/EditAnthology';
 import EditContainer from './create/EditContainer';
 import { useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
 
 function WriteLetter({ history }) {
   const navigate = useNavigate();
@@ -25,6 +26,7 @@ function WriteLetter({ history }) {
 
   const clickNextButton = () => {
     dispatch({ type: 'SAVE_LETTER', title, content });
+    sendLetter()
     navigate('/create/keyword');
   };
 
@@ -34,6 +36,24 @@ function WriteLetter({ history }) {
       [e.target.name]: e.target.value,
     });
   };
+
+  const sendLetter = async() =>{
+    await axios({
+      method: 'post',                                 
+      url: 'https://testapi.flowerletter.co.kr/results',    
+      data:{
+        'letter_content':content
+      },
+      headers: {'Content-Type': 'application/json'},
+  })
+  .then((response) => {
+     console.log('통신 성공',response)
+  })
+  .catch((response) => {
+      alert("error");
+  })
+  }
+  
 
   return (
     <div>
