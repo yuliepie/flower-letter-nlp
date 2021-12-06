@@ -21,8 +21,8 @@ import torch
 from transformers import BertModel
 import gluonnlp as nlp
 
-from .utils import download as _download
-from .utils import tokenizer
+from utils import download as _download
+from utils import tokenizer
 
 pytorch_kobert = {
     'url':
