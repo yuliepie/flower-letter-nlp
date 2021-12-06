@@ -1,12 +1,12 @@
 import React from 'react';
-import OrderPay from '../components/OrderPay';
+import OrderComplete from '../components/OrderComplete';
 import { useLocation } from 'react-router';
 
 const Checkout = ({ history }) => {
-
-  const location = useLocation()
+  const location = useLocation();
   return (
     <div>
+      <OrderComplete></OrderComplete>
       <p>{location.orderInfo}</p>
     </div>
   );
