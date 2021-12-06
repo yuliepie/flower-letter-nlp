@@ -1,35 +1,38 @@
-# 라이브러리 임포트
 import torch
 from torch import nn
-import torch.nn.functional as F
-import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 import gluonnlp as nlp
 import numpy as np
 from tqdm import tqdm, tqdm_notebook
-from kobert.utils import get_tokenizer
-from kobert.pytorch_kobert import get_pytorch_kobert_model
 from transformers import AdamW
+from transformers import BertModel, DistilBertModel
 from transformers.optimization import get_cosine_schedule_with_warmup
+
+
+bert_model = BertModel.from_pretrained("monologg/kobert")
+distilbert_model = DistilBertModel.from_pretrained("monologg/distilkobert")
+tokenizer = KoBertTokenizer.from_pretrained("monologg/kobert")
+
+from tokenization_kobert import KoBertTokenizer
+from pytorch_kobert import get_pytorch_kobert_model
+
+x, vocab = get_pytorch_kobert_model()
+tok = nlp.data.BERTSPTokenizer(tokenizer, vocab, lower=False)
 
 # 데이터셋 불러오기
 dataset_train = nlp.data.TSVDataset(
-    "/content/drive/MyDrive/Colab Notebooks/nlp3/data/letter_class.tsv",
-    field_indices=[1, 2],
+    "/content/drive/MyDrive/Colab Notebooks/nlp3/dataset/letter_single_train.tsv",
+    field_indices=[0, 1],
     num_discard_samples=1,
 )
 dataset_test = nlp.data.TSVDataset(
-    "/content/drive/MyDrive/Colab Notebooks/nlp3/data/letter_class.tsv",
-    field_indices=[1, 2],
+    "/content/drive/MyDrive/Colab Notebooks/nlp3/dataset/letter_single_train.tsv",
+    field_indices=[0, 1],
     num_discard_samples=1,
 )
 
-#
-bertmodel, vocab = get_pytorch_kobert_model()
+# 사랑(0), 좋다(1), 우정(2), 절망(3), 죽음(4), 차분(5), 행복(6), 슬픔(7), 조용(8), 사색(9), 동화(10), 감성(11), 일생(12), 기억(13), 가족(14), 밤(15), 자연(16), 동물(17), 계절(18), 신체(19), 물건(20), 색깔(21), 동네(22), 음식(23), 날씨(24), 여행(25)
 
-# 토큰화
-tokenizer = get_tokenizer()
-tok = nlp.data.BERTSPTokenizer(tokenizer, vocab, lower=False)
 
 # 클래스: 데이터셋 → Tensor데이터셋
 class BERTDataset(Dataset):
@@ -59,9 +62,11 @@ max_grad_norm = 1
 log_interval = 200
 learning_rate = 5e-5
 
-# 데이터셋→BERT데이터셋
-data_train = BERTDataset(dataset_train, 1, 0, tok, max_len, True, False)
-data_test = BERTDataset(dataset_test, 1, 0, tok, max_len, True, False)
+tok = nlp.data.BERTSPTokenizer(tokenizer, vocab, lower=False)
+
+# Tensor데이터셋
+data_train = BERTDataset(dataset_train, 0, 1, tok, max_len, True, False)
+data_test = BERTDataset(dataset_test, 0, 1, tok, max_len, True, False)
 
 # 배치 및 데이터로더 설정
 train_dataloader = torch.utils.data.DataLoader(
@@ -102,7 +107,7 @@ class BERTClassifier(nn.Module):
 
 
 # BERT 모델 불러오기
-model = BERTClassifier(bertmodel, dr_rate=0.5)
+model = BERTClassifier(bert_model, dr_rate=0.5)
 
 # Prepare optimizer and schedule (linear warmup and decay)
 no_decay = ["bias", "LayerNorm.weight"]
@@ -125,10 +130,8 @@ optimizer_grouped_parameters = [
 
 optimizer = AdamW(optimizer_grouped_parameters, lr=learning_rate)
 loss_fn = nn.CrossEntropyLoss()
-
 t_total = len(dataset_train) * num_epochs
 warmup_step = int(t_total * warmup_ratio)
-
 scheduler = get_cosine_schedule_with_warmup(
     optimizer, num_warmup_steps=warmup_step, num_training_steps=t_total
 )
@@ -182,7 +185,67 @@ for e in range(num_epochs):
         test_acc += calc_accuracy(out, label)
     print("epoch {} test acc {}".format(e + 1, test_acc / (batch_id + 1)))
 
-MODEL_NAME = "kobert_letter_single"
-MODEL_SAVE_PATH = "/content/drive/MyDrive/Colab Notebooks/nlp3/model/" + MODEL_NAME
 
-torch.save(model, MODEL_SAVE_PATH)
+def predict(predict_sentence):
+
+    data = [predict_sentence, "0"]
+    dataset_another = [data]
+
+    another_test = BERTDataset(dataset_another, 0, 1, tok, max_len, True, False)
+    test_dataloader = torch.utils.data.DataLoader(
+        another_test, batch_size=batch_size, num_workers=5
+    )
+
+    model.eval()
+    for batch_id, (token_ids, valid_length, segment_ids, label) in enumerate(
+        test_dataloader
+    ):
+        token_ids = token_ids.long()
+        segment_ids = segment_ids.long()
+        valid_length = valid_length
+        label = label.long()
+        out = model(token_ids, valid_length, segment_ids)
+        origin_label = [
+            "사랑",
+            "좋다",
+            "우정",
+            "절망",
+            "죽음",
+            "차분",
+            "행복",
+            "슬픔",
+            "조용",
+            "사색",
+            "동화",
+            "감성",
+            "일생",
+            "기억",
+            "가족",
+            "밤",
+            "자연",
+            "동물",
+            "계절",
+            "신체",
+            "물건",
+            "색깔",
+            "동네",
+            "음식",
+            "날씨",
+            "여행",
+        ]
+        test_eval = []
+        for i in out:
+            logits = i
+            logits = logits.detach().cpu().numpy()
+            test_eval.append(np.argmax(logits))
+        print(">> 입력하신 내용에서 " + origin_label[test_eval[0]] + " 느껴집니다.")
+
+
+# 질문 무한반복하기! 0 입력시 종료
+end = 1
+while end == 1:
+    sentence = input("하고싶은 말을 입력해주세요 : ")
+    if sentence == "0":
+        break
+    predict(sentence)
+    print("\n")
