@@ -1,11 +1,29 @@
-import React from 'react';
+import React,{useState} from 'react';
 import StepsLetter from '../StepsLetter';
 import EditContainer from './EditContainer';
 import { Flex, HStack, Box, Button, Spacer, useRadioGroup, VStack, Text } from '@chakra-ui/react';
 import { useNavigate } from 'react-router';
+import { useDispatch, batch } from 'react-redux';
 
 export default function BookCover() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [ userFont, setUserFont] = useState('')
+  const [ userColor, setUserColor] = useState('')
+
+  const clickNextButton = () =>{
+    navigate('/create/freecontent')
+    batch(()=>{
+      dispatch({type:'SAVE_FONT', userFont})
+      dispatch({type:'SAVE_COLOR',userColor})
+    })
+  }
+
+
+
+  console.log('선택된 컬러',userColor)
+  console.log('선택된 폰트',userFont)
 
   return (
     <div>
@@ -21,20 +39,20 @@ export default function BookCover() {
           <VStack w='100%' h='90%' align='center' border='1px' p='3' m='2'>
             <Text>컬러</Text>
             <div className='scrollbox' align='center'>
-              <Button className='flowerbutton' m='2' w='90%' h='60px' bg='skyblue' fontWeight='600' color='white'>
-                Color
+              <Button className='flowerbutton' m='2' w='90%' h='60px' bg='skyblue' fontWeight='600' color='white' backgroundColor='red' onClick={()=>{setUserColor('red')}}>
+                Red
               </Button>
-              <Button className='flowerbutton' m='2' w='90%' h='60px' bg='skyblue' fontWeight='600' color='white'>
-                Color
+              <Button className='flowerbutton' m='2' w='90%' h='60px' bg='skyblue' fontWeight='600' color='white' backgroundColor='blue' onClick={()=>{setUserColor('blue')}}>
+                Blue
               </Button>
             </div>
             <Text>폰트</Text>
             <div className='scrollbox' align='center'>
-              <Button className='flowerbutton' m='2' w='90%' h='60px' bg='skyblue' fontWeight='600' color='white'>
-                Font
+              <Button className='flowerbutton' m='2' w='90%' h='60px' bg='skyblue' fontWeight='600' color='white' fontFamily='NanumGrandfather' fontSize='30px' onClick={()=>{setUserFont('NanumGrandfather')}}>
+                나눔 할아버지체
               </Button>
-              <Button className='flowerbutton' m='2' w='90%' h='60px' bg='skyblue' fontWeight='600' color='white'>
-                Font
+              <Button className='flowerbutton' m='2' w='90%' h='60px' bg='skyblue' fontWeight='600' color='white' fontFamily='NanumMom' fontSize='30px' onClick={()=>{setUserFont('NanumMom')}}>
+                나눔 엄마체
               </Button>
             </div>
           </VStack>
@@ -43,30 +61,13 @@ export default function BookCover() {
 
       <Flex pl='6' pr='6' h='10%' w='100%'>
         <Box>
-          <Button
-            w='30vh'
-            h='7vh'
-            bg='skyblue'
-            color='white'
-            fontSize='3vh'
-            onClick={() => {
-              navigate('/create/flowerlang');
-            }}>
+          <Button w='30vh' h='7vh' bg='skyblue' color='white' fontSize='3vh' onClick={() => { navigate('/create/flowerlang'); }}>
             이전 단계
           </Button>
         </Box>
         <Spacer />
         <Box>
-          <Button
-            w='30vh'
-            h='7vh'
-            bg='skyblue'
-            color='white'
-            fontSize='3vh'
-            onClick={() => {
-              navigate('/create/freecontent');
-            }}>
-            다음 단계
+          <Button w='30vh' h='7vh' bg='skyblue' color='white' fontSize='3vh' onClick={clickNextButton}> 다음 단계
           </Button>
         </Box>
       </Flex>
