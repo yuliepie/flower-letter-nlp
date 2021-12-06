@@ -1,9 +1,12 @@
 import React from 'react';
 import StepsLetter from '../StepsLetter';
 import EditContainer from './EditContainer';
-import { Flex, HStack } from '@chakra-ui/react';
+import { Flex, HStack,Box,Button,Spacer, useRadioGroup, VStack } from '@chakra-ui/react';
+import { useNavigate } from 'react-router';
 
 export default function BookCover() {
+  const navigate = useNavigate()
+
   return (
     <div>
       <StepsLetter />
@@ -13,11 +16,24 @@ export default function BookCover() {
           {/* 왼쪽 박스 */}
           디자인 단계
         </Flex>
-        <Flex w='40%' h='100%' border='1px' borderRadius='10px' ml='1'>
+        <Flex w='40%' h='100%' border='1px' borderRadius='10px' ml='1' justify='center'>
           {/* 오른쪽 박스 */}
         </Flex>
       </HStack>
-      <EditContainer prevLink={'/create/flowerlang'} nextLink={'/create/freecontent'} />
+      
+      <Flex pl='6' pr='6' h='10%' w='100%'>
+      <Box>
+        <Button w='30vh' h='7vh' bg='skyblue' color='white' fontSize='3vh' onClick={() => { navigate("/create/flowerlang"); }}>
+          이전 단계
+        </Button>
+      </Box>
+      <Spacer />
+      <Box>
+        <Button w='30vh' h='7vh' bg='skyblue' color='white' fontSize='3vh' onClick={() => { navigate("/create/freecontent"); }}> 
+        다음 단계
+        </Button>
+      </Box>
+    </Flex>
     </div>
   );
 }

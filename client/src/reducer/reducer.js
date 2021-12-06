@@ -1,5 +1,5 @@
 import { AlertTitle } from '@chakra-ui/alert';
-import { SAVE_LETTER} from './actions';
+import { SAVE_FREECONTENT, SAVE_LETTER} from './actions';
 
 const initialState = {
     name: '',
@@ -7,7 +7,8 @@ const initialState = {
     email: '',
     phone: '',
     letter_title:'',
-    letter_content:''
+    letter_content:'',
+    free_content:''
 
 }
 
@@ -20,6 +21,12 @@ const reducer = (state=initialState, action)=>{
                 letter_title:action.title,
                 letter_content:action.content
 
+            }
+        }
+        case SAVE_FREECONTENT:{
+            return{
+                ...state,
+                free_content:action.content
             }
         }
         
