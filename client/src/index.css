@@ -13,3 +13,9 @@ code {
   /* create페이지 상단 바의 선택부분 디자인 */
   background-color: blue;
 }
+
+.keywordrange {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
