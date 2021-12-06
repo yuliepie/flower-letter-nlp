@@ -1,9 +1,11 @@
 import React from 'react';
 import StepsLetter from '../StepsLetter';
 import EditContainer from './EditContainer';
-import { Flex, HStack } from '@chakra-ui/react';
+import { Flex, HStack,Box,Button,Spacer } from '@chakra-ui/react';
+import { useNavigate } from 'react-router';
 
 export default function FlowerLang() {
+  const navigate = useNavigate()
   return (
     <div>
       <StepsLetter />
@@ -17,7 +19,19 @@ export default function FlowerLang() {
           {/* 오른쪽 박스 */}
         </Flex>
       </HStack>
-      <EditContainer prevLink={'/create/keyword'} nextLink={'/create/bookcover'} />
+      <Flex pl='6' pr='6' h='10%' w='100%'>
+      <Box>
+        <Button w='30vh' h='7vh' bg='skyblue' color='white' fontSize='3vh' onClick={() => { navigate('/create/keyword'); }}>
+          이전 단계
+        </Button>
+      </Box>
+      <Spacer />
+      <Box>
+        <Button w='30vh' h='7vh' bg='skyblue' color='white' fontSize='3vh' onClick={() => { navigate('/create/bookcover'); }}> 
+        다음 단계
+        </Button>
+      </Box>
+    </Flex>
     </div>
   );
 }
