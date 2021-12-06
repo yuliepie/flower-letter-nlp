@@ -17,22 +17,25 @@ export default function FlowerLang() {
         </Flex>
         <Flex w='40%' h='100%' border='1px' borderRadius='10px' ml='1' align='center' justify='center'>
           {/* 오른쪽 박스 */}
-          <div className='flowerbox' align='center'>
-            {/* 스크롤 박스 */}
-            <Button className='flowerbutton' m='2' w='90%' h='100px' bg='skyblue' fontWeight='600' color='white'>
-              Color
+          <div className='scrollbox' align='center'>
+            {/* 스크롤 박스. 스크롤 표시되도록 복붙으로 버튼 넣은 상태 */}
+            <Button className='flowerbutton' m='2' w='90%' h='60px' bg='skyblue' fontWeight='600' color='white'>
+              Flower
             </Button>
-            <Button className='flowerbutton' m='2' w='90%' h='100px' bg='skyblue' fontWeight='600' color='white'>
-              Color
+            <Button className='flowerbutton' m='2' w='90%' h='60px' bg='skyblue' fontWeight='600' color='white'>
+              Flower
             </Button>
-            <Button className='flowerbutton' m='2' w='90%' h='100px' bg='skyblue' fontWeight='600' color='white'>
-              Color
+            <Button className='flowerbutton' m='2' w='90%' h='60px' bg='skyblue' fontWeight='600' color='white'>
+              Flower
             </Button>
-            <Button className='flowerbutton' m='2' w='90%' h='100px' bg='skyblue' fontWeight='600' color='white'>
-              Color
+            <Button className='flowerbutton' m='2' w='90%' h='60px' bg='skyblue' fontWeight='600' color='white'>
+              Flower
             </Button>
-            <Button className='flowerbutton' m='2' w='90%' h='100px' bg='skyblue' fontWeight='600' color='white'>
-              Color
+            <Button className='flowerbutton' m='2' w='90%' h='60px' bg='skyblue' fontWeight='600' color='white'>
+              Flower
+            </Button>
+            <Button className='flowerbutton' m='2' w='90%' h='60px' bg='skyblue' fontWeight='600' color='white'>
+              Flower
             </Button>
           </div>
         </Flex>
