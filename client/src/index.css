@@ -20,7 +20,7 @@ code {
   transform: rotate(-90deg);
 }
 
-.flowerbox {
+.scrollbox {
   overflow: auto;
   width: 90%;
   height: 95%;
