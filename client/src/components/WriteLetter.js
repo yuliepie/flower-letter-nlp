@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { CloseButton, Box, Center, Spacer, Flex, Stack, Input, Button, Textarea, VStack, HStack, Breadcrumb, BreadcrumbLink, BreadcrumbItem } from '@chakra-ui/react';
-import { ChevronRightIcon } from '@chakra-ui/icons';
+import { Box, Center, Spacer, Flex, Stack, Input, Button, Textarea,HStack } from '@chakra-ui/react';
 import StepsLetter from './StepsLetter';
-import EditAnthology from '../components/EditAnthology';
-import EditContainer from './create/EditContainer';
 import { useNavigate } from 'react-router';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector,batch } from 'react-redux';
 import axios from 'axios';
 
 function WriteLetter({ history }) {
@@ -24,9 +21,12 @@ function WriteLetter({ history }) {
 
   const { title, content } = inputs;
 
+  
+
   const clickNextButton = () => {
     dispatch({ type: 'SAVE_LETTER', title, content });
     sendLetter()
+   
     navigate('/create/keyword');
   };
 
@@ -48,11 +48,24 @@ function WriteLetter({ history }) {
   })
   .then((response) => {
      console.log('통신 성공',response)
+     console.log('꽃말 데이터',response.data.flowers)
+     console.log('시 데이터',response.data.poems)
+    
+     const flowersList = response.data.flowers
+     const poems = response.data.poems
+    
+     batch(()=>{
+      dispatch({type:'SAVE_FLOWER_DATA',flowersList})
+      dispatch({type:'SAVE_POEMS',poems})
+    })
+     
+     
   })
   .catch((response) => {
       alert("error");
   })
   }
+  
   
 
   return (

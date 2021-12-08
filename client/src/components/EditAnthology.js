@@ -4,21 +4,24 @@ import StepsLetter from './StepsLetter';
 import { useLocation, useNavigate, useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import PoemContainer from './create/PoemContainer';
-import EditContainer from './create/EditContainer';
 import { Button, HStack, Flex, Box, Spacer,VStack } from '@chakra-ui/react';
 
 function EditAnthology() {
   const navigate = useNavigate();
-  const location = useLocation();
+  const {flowersList, poems} = useSelector((state)=>({
+    flowersList:state.flowersList,
+    poems:state.poems
+  }))
+
+  //console.log('리덕스로 꽃말 잘 들어왔나 확인',flowersList)
+  //console.log('리덕스로 시데이터 잘 들어왔나 확인',poems)
 
   const { title, content } = useSelector((state) => ({
     title: state.letter_title,
     content: state.letter_content,
   }));
-  
 
-  
-
+     
   return (
     <div>
       <StepsLetter></StepsLetter>

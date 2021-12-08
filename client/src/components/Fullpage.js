@@ -91,17 +91,7 @@ function Fullpage() {
 
   return (
     <div style={{height:'100vh', overflow:'auto' }}>
-      {
-        /*
-        <div className="inner be-yellow">
-        <WithBackgroundImage 
-          //buttonName={"About us"}
-          text={"당신의 소중한 사람에게 가장 특별한 시집을 선물해보세요"}
-          backgroundImg={"/img/mainPageFirstImg.png"}
-        />
-      </div>
-        */ 
-      }
+    
   
       <WithBackgroundImage 
         //buttonName={"About us"}
@@ -110,7 +100,7 @@ function Fullpage() {
         textcolor={'white'}
       />
     
-      {/*<div className="divider"></div>*/}
+      
       
       <WithBackgroundImage
         h='full'

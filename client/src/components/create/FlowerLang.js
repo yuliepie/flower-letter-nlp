@@ -1,11 +1,26 @@
 import React from 'react';
 import StepsLetter from '../StepsLetter';
-import EditContainer from './EditContainer';
 import { Flex, HStack, Box, Button, Spacer } from '@chakra-ui/react';
 import { useNavigate } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function FlowerLang() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  
+  const {flowersList} = useSelector((state)=>({
+    flowersList:state.flowersList
+  }))
+  
+  const saveFlower = (user_flower)=>{
+    dispatch({type:"SAVE_USER_FLOWER", user_flower})
+  }
+
+  
+  const flowerList = flowersList.map((content,index) => <Button key={index} m='2' w='90%' h='60px' bg='skyblue' fontWeight='600' color='white' onClick={()=>{saveFlower(content['_id'])}} >{content['name']}:{content['symbol']}</Button>);
+  
+
+
   return (
     <div>
       <StepsLetter />
@@ -19,6 +34,9 @@ export default function FlowerLang() {
           {/* 오른쪽 박스 */}
           <div className='scrollbox' align='center'>
             {/* 스크롤 박스. 스크롤 표시되도록 복붙으로 버튼 넣은 상태 */}
+
+            <div>{flowerList}</div>
+            {/*
             <Button className='flowerbutton' m='2' w='90%' h='60px' bg='skyblue' fontWeight='600' color='white'>
               Flower
             </Button>
@@ -37,6 +55,10 @@ export default function FlowerLang() {
             <Button className='flowerbutton' m='2' w='90%' h='60px' bg='skyblue' fontWeight='600' color='white'>
               Flower
             </Button>
+            */}
+            
+            
+           
           </div>
         </Flex>
       </HStack>
