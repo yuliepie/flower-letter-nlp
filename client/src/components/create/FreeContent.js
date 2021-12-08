@@ -1,10 +1,9 @@
 import React,{useState} from 'react';
 import StepsLetter from '../StepsLetter';
-import EditContainer from './EditContainer';
 import { Flex, HStack, Textarea,Box, Button, Spacer } from '@chakra-ui/react';
 import { useNavigate } from 'react-router';
 import { useDispatch,useSelector } from 'react-redux';
-import { bindActionCreators } from 'redux';
+
 
 export default function FreeContent() {
 
@@ -19,8 +18,8 @@ export default function FreeContent() {
     color:state.usercolor
   }));
 
-  console.log('리덕스 font', font)
-  console.log('리덕스 color',color)
+  //console.log('리덕스 font', font)
+  //console.log('리덕스 color',color)
   
   const [content, setContent] = useState(free_content)
 

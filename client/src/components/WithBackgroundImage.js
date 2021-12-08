@@ -1,11 +1,9 @@
 import {
   Stack,
-  Flex,
   Button,
   Text,
   VStack,
   useBreakpointValue,
-  Box,
   Link
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router";

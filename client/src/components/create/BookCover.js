@@ -1,9 +1,8 @@
 import React,{useState} from 'react';
 import StepsLetter from '../StepsLetter';
-import EditContainer from './EditContainer';
 import { Flex, HStack, Box, Button, Spacer, useRadioGroup, VStack, Text } from '@chakra-ui/react';
 import { useNavigate } from 'react-router';
-import { useDispatch, batch } from 'react-redux';
+import { useDispatch, batch, useSelector } from 'react-redux';
 
 export default function BookCover() {
   const navigate = useNavigate();
@@ -11,6 +10,10 @@ export default function BookCover() {
 
   const [ userFont, setUserFont] = useState('')
   const [ userColor, setUserColor] = useState('')
+
+  const {user_flower} = useSelector((state)=>({
+    user_flower:state.user_flower
+  }))
 
   const clickNextButton = () =>{
     navigate('/create/freecontent')
@@ -20,10 +23,7 @@ export default function BookCover() {
     })
   }
 
-
-
-  console.log('선택된 컬러',userColor)
-  console.log('선택된 폰트',userFont)
+  console.log('꽃말 리덕스 확인',user_flower)
 
   return (
     <div>
