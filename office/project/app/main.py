@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, flash
 import requests
-from app.config import get_config
+from config import get_config
 
 config = get_config()
 
