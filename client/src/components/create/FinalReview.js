@@ -91,8 +91,8 @@ export default function FinalReview() {
     letter_content,
     user_flower_id,
     color,
-
     user_flower_symbol,
+    userflower,
   } = useSelector((state) => ({
     poems: state.poems,
     free_content: state.free_content,
@@ -102,6 +102,7 @@ export default function FinalReview() {
     letter_content: state.letter_content,
     user_flower_id: state.user_flower_id,
     user_flower_symbol: state.user_flower_symbol,
+    userflower: state.user_flower_url,
   }));
 
   const [mainContent, setMainContent] = useState('');
@@ -168,7 +169,13 @@ export default function FinalReview() {
           <div className="leftBox">
             {/* 왼쪽 박스 */}
 
-            {coverButton && <Preview userfont={font} usercolor={color} />}
+            {coverButton && (
+              <Preview
+                userfont={font}
+                usercolor={color}
+                userflower={userflower}
+              />
+            )}
             {!coverButton && (
               <PoemContainer
                 poem_content={mainContent}
