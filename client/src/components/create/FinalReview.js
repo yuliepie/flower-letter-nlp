@@ -236,6 +236,7 @@ export default function FinalReview() {
                 userfont={font}
                 usercolor={color}
                 userflower={userflower}
+                finalTitle={finalTitle}
               />
             )}
             {!coverButton && (
@@ -262,7 +263,7 @@ export default function FinalReview() {
               <input
                 className="input-field right-box-content"
                 placeholder="시집 제목을 입력하세요"
-                onKeyUp={handleChange}
+                onChange={handleChange}
               />
               <div
                 className={
