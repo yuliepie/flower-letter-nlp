@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, flash
 import requests
-from config import get_config
+from app.config import get_config
 
 config = get_config()
 
@@ -16,16 +16,12 @@ def hello_world():
 
 @app.route("/inquiry")
 def inquiry_page():
-    flower_url = "https://testapi.flowerletter.co.kr"
-    # url = f"{config.api_url}/question"
-    url = flower_url + "/question"
+    url = f"{config.api_url}/question"
     try:
         response = requests.get(url)
         inquiries = response.json()
     except:
         flash("문의 불러오기 실패.")
-
-    print(inquiries)
 
     return render_template("inquiry.html", inquiries=inquiries)
 
@@ -33,16 +29,14 @@ def inquiry_page():
 @app.route("/inquiry/<inquiry_id>")
 def page(inquiry_id):
 
-    flower_url = "https://testapi.flowerletter.co.kr"
-    # url = f"{config.api_url}/question/{inquiry_id}"
-    url = f"{flower_url}/question/{inquiry_id}"
+    url = f"{config.api_url}/question/{inquiry_id}"
     try:
         response = requests.get(url)
         inquiry = response.json()
     except:
         flash("문의 불러오기 실패.")
 
-    return render_template("inquiry_reply.html", inquiry_example=inquiry)
+    return render_template("inquiry_reply.html", inquiry=inquiry, apiurl=config.api_url)
 
 
 @app.route("/order")

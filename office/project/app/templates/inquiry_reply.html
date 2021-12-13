@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>문의 번호 - {{inquiry_example["id"]}}</title>
+    <title>문의 번호 - {{inquiry["id"]}}</title>
     <style>
       .container {
         margin-top: 30px;
@@ -64,12 +64,13 @@
   <body>
     <div class="container">
       <div class="inquiry">
-        <div class="title"><b>Q.</b> {{inquiry_example["title"]}}</div>
-        <div class="content">{{inquiry_example["content"]}}</div>
+        <div class="title"><b>Q.</b> {{inquiry["title"]}}</div>
+        <div class="content">{{inquiry["content"]}}</div>
       </div>
-      <form action="http://127.0.0.1:5000" method="post">
+      <form action="{{apiurl}}/question_answer" method="post">
         <div class="reply">
-          <input name="inquiry_id" value="{{inquiry_example['id']}}" hidden />
+          <input name="inquiry_id" value="{{inquiry['id']}}" hidden />
+          <input name="email" value="{{inquiry['email']}}" hidden />
           <textarea name="reply" id="reply" cols="90" rows="10"></textarea>
           <div class="buttonArea">
             <input class="submit" type="submit" value="답변 보내기" />
