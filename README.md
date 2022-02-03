@@ -1,6 +1,6 @@
 # 꽃편지 (AI 시집 제작 서비스)
 <p align="center">
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e0e54647-9b44-4e0c-b55b-424f2521110a/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T095149Z&X-Amz-Expires=86400&X-Amz-Signature=3befc0a056f6cdce498d2861dbec66f399e783a51fd25d84cf13e3c35971e1aa&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" alt="drawing" width="700"/>
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e0e54647-9b44-4e0c-b55b-424f2521110a/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T095149Z&X-Amz-Expires=86400&X-Amz-Signature=3befc0a056f6cdce498d2861dbec66f399e783a51fd25d84cf13e3c35971e1aa&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" alt="drawing" width="500"/>
 </p>
 <p align="center">
     <em>🌷 소중한 사람에게 선물하는 나만의 커스텀 시집, 꽃편지가 만들어드려요.</em>
@@ -33,40 +33,22 @@
 
 ## 사용 스택 & 아키텍쳐
 
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e179b591-0324-4a7a-87c9-384e466d7c76/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T101538Z&X-Amz-Expires=86400&X-Amz-Signature=d8000791a17c0952a964cc2a21718f83c43d02d5363ec033a810f72ed7b8901c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" alt="drawing" width="700"/>
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e179b591-0324-4a7a-87c9-384e466d7c76/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T101538Z&X-Amz-Expires=86400&X-Amz-Signature=d8000791a17c0952a964cc2a21718f83c43d02d5363ec033a810f72ed7b8901c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" alt="drawing" width="auto"/>
 
 * **FRONT** : `React` `Redux` `styled-components` `Chakra UI axios` `Figma (Wireframe)`
 * **BACK** : `MySQL` `SQLAlchemy` `MongoDB` `Beanie ODM` `FastAPI` `FastAPI-Mail` `Bcrypt`
 * **AI** : `KoNLPy` `LDA` `KoBERT`
 * **DEPLOY**: `MongoDB Atlas` `Amazon RDS` `GCP` `Docker` `Docker-Compose` `Ngnix`
 
-## Wireframe
-
----
-
-[https://www.figma.com/embed?embed_host=notion&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FMuRzCnUOePGZLqy5IjMfA4%2FNLP_MVP.ver%3Fnode-id%3D0%253A1](https://www.figma.com/embed?embed_host=notion&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FMuRzCnUOePGZLqy5IjMfA4%2FNLP_MVP.ver%3Fnode-id%3D0%253A1)
-
 ## 기능 Flow
+🌖  **Client Side Flow Chart**
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/aada8724-d943-4b65-89cc-7a86790fd8fa/Mind_Map.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T104656Z&X-Amz-Expires=86400&X-Amz-Signature=e9bd1eed378887da9c101b8f3a319a2b590f813abeaea00d318dbd16b7bd921b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Mind%2520Map.jpeg%22&x-id=GetObject" alt="drawing" width="auto"/>
 
----
+🌘  **Server Side Flow Chart**
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/031d057c-d8ec-4e5d-8073-201e7fd47d00/Server-Flowchart.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T104713Z&X-Amz-Expires=86400&X-Amz-Signature=709c62e19f74bd20bbf412e62b8ed70b35b41f1ab913f25cbbe68a0987449eee&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Server-Flowchart.jpeg%22&x-id=GetObject" alt="drawing" width="auto"/>
 
-<aside>
-🌖 **Client Side Flow Chart**
-
-</aside>
-
-![Mind Map.jpeg](%E1%84%81%E1%85%A9%E1%86%BE%E1%84%91%E1%85%A7%E1%86%AB%E1%84%8C%E1%85%B5%20AI%20%E1%84%89%E1%85%B5%E1%84%8C%E1%85%B5%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20578dad71a7c04c9296d8d2315315e77f/Mind_Map.jpeg)
-
-<aside>
-🌘 **Server Side Flow Chart**
-
-</aside>
-
-![Server-Flowchart.jpeg](%E1%84%81%E1%85%A9%E1%86%BE%E1%84%91%E1%85%A7%E1%86%AB%E1%84%8C%E1%85%B5%20AI%20%E1%84%89%E1%85%B5%E1%84%8C%E1%85%B5%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20578dad71a7c04c9296d8d2315315e77f/Server-Flowchart.jpeg)
 
 ## 기능 데모
-
----
 
 12/14 데모데이 전까지 추가 예정
 
