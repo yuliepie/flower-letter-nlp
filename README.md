@@ -41,14 +41,11 @@
 * **DEPLOY**: `MongoDB Atlas` `Amazon RDS` `GCP` `Docker` `Docker-Compose` `Ngnix`
 
 ## 기능 Flow
-<details>
-  <summary><strong>🌖  Client Side Flow Chart</strong></summary>
-  <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/aada8724-d943-4b65-89cc-7a86790fd8fa/Mind_Map.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T104656Z&X-Amz-Expires=86400&X-Amz-Signature=e9bd1eed378887da9c101b8f3a319a2b590f813abeaea00d318dbd16b7bd921b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Mind%2520Map.jpeg%22&x-id=GetObject" alt="drawing" width="auto"/>
-</details>
-<details>
-  <summary><strong>🌘  Server Side Flow Chart</strong></summary>
-  <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/031d057c-d8ec-4e5d-8073-201e7fd47d00/Server-Flowchart.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T104713Z&X-Amz-Expires=86400&X-Amz-Signature=709c62e19f74bd20bbf412e62b8ed70b35b41f1ab913f25cbbe68a0987449eee&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Server-Flowchart.jpeg%22&x-id=GetObject" alt="drawing" width="auto"/>
-</details>
+<strong>🌖  Client Side Flow Chart</strong>
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/aada8724-d943-4b65-89cc-7a86790fd8fa/Mind_Map.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T104656Z&X-Amz-Expires=86400&X-Amz-Signature=e9bd1eed378887da9c101b8f3a319a2b590f813abeaea00d318dbd16b7bd921b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Mind%2520Map.jpeg%22&x-id=GetObject" alt="drawing" width="auto"/>
+
+<strong>🌘  Server Side Flow Chart</strong>
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/031d057c-d8ec-4e5d-8073-201e7fd47d00/Server-Flowchart.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T104713Z&X-Amz-Expires=86400&X-Amz-Signature=709c62e19f74bd20bbf412e62b8ed70b35b41f1ab913f25cbbe68a0987449eee&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Server-Flowchart.jpeg%22&x-id=GetObject" alt="drawing" width="auto"/>
 
 ## 기능 데모
 
