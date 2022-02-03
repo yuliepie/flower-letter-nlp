@@ -1,17 +1,29 @@
-# (서비스 명)
-- 최종 서비스 명을 위 괄호 부분에 작성하세요.
-- 최종 서비스의 한 줄 소개를 작성하세요.  
-편지를 작성하고 편지 내용을 바탕으로 시를 묶어주는 시집 제작 서비스
+# 꽃편지 (AI 시집 제작 서비스)
+## 1. Intro
 
+![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e0e54647-9b44-4e0c-b55b-424f2521110a/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T095149Z&X-Amz-Expires=86400&X-Amz-Signature=3befc0a056f6cdce498d2861dbec66f399e783a51fd25d84cf13e3c35971e1aa&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
 
-## 프로젝트 구성 안내
+- **프로젝트 명**: 꽃편지
+- **팀원:** 정율리(팀장), 김가원, 김서정, 김준석, 이무용
+- **Github 링크:** https://github.com/yuliepie/flower-letter-nlp
+- **배포 링크:** https://www.flowerletter.co.kr
 
-* `bullet point 에 적힌 내용을 수정해 주시면 됩니다.`
+## 2. Project
 
-* `초기 기획은 언제든 수정될 수 있으니 웹서비스 결과를 내는데 초점을 두시기 바랍니다.`  
-와이어프레임, 노션 링크 추가
+### 프로젝트 소개
+<aside>
+🌷 **소중한 사람에게 선물하는 나만의 커스텀 시집, 꽃편지가 만들어드려요.**
 
-## 1. 프로젝트 소개
+</aside>
+
+> 사람들은 곧 잘 누군가에게 줄 특별한 선물로 시집을 고르고는 합니다. 
+하지만 시의 종류와 내용은 너무도 다양해서, 상대방에게 맞춘 적절한 내용의 시집을 찾기란 쉽지 않습니다. 
+>
+> 꽃편지는, 여러분이 선물하는 대상에 꼭 맞는 시집을 AI의 도움으로 만들어주는 서비스입니다.
+>
+>소중한 사람에게 편지를 쓰고, 함께 선물할 수 있는 맞춤 시집을 받아 보세요.
+의미있는 꽃말을 담은 표지까지 더해진다면, 세상에서 하나뿐인 그 사람만을 위한 시집이 될 것입니다.
+
 
 **어떠한 인공지능 모델과 알고리즘을 사용했는지에 대한 설명과 엔드유저에게 보이는 웹서비스에 대한 소개**
 
