@@ -1,18 +1,20 @@
 # 꽃편지 (AI 시집 제작 서비스)
-## 1. Intro
+<p align="center">
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e0e54647-9b44-4e0c-b55b-424f2521110a/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T095149Z&X-Amz-Expires=86400&X-Amz-Signature=3befc0a056f6cdce498d2861dbec66f399e783a51fd25d84cf13e3c35971e1aa&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" alt="drawing" width="700"/>
+</p>
+<p align="center">
+    <em>🌷 소중한 사람에게 선물하는 나만의 커스텀 시집, 꽃편지가 만들어드려요.</em>
+</p>
 
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e0e54647-9b44-4e0c-b55b-424f2521110a/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T095149Z&X-Amz-Expires=86400&X-Amz-Signature=3befc0a056f6cdce498d2861dbec66f399e783a51fd25d84cf13e3c35971e1aa&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" alt="drawing" width="500"/>
-
+---
 - **프로젝트 명**: 꽃편지
+  
 - **팀원:** 정율리(팀장), 김가원, 김서정, 김준석, 이무용
-- **Github 링크:** https://github.com/yuliepie/flower-letter-nlp
+  
 - **배포 링크:** https://www.flowerletter.co.kr
+---
 
-## 2. Project
-
-### 프로젝트 소개
-
-🌷 **소중한 사람에게 선물하는 나만의 커스텀 시집, 꽃편지가 만들어드려요.**
+## 프로젝트 소개
      
 > 사람들은 곧 잘 누군가에게 줄 특별한 선물로 시집을 고르고는 합니다. 
 하지만 시의 종류와 내용은 너무도 다양해서, 상대방에게 맞춘 적절한 내용의 시집을 찾기란 쉽지 않습니다. 
@@ -22,41 +24,21 @@
 >소중한 사람에게 편지를 쓰고, 함께 선물할 수 있는 맞춤 시집을 받아 보세요.
 의미있는 꽃말을 담은 표지까지 더해진다면, 세상에서 하나뿐인 그 사람만을 위한 시집이 될 것입니다.
 
-#### 주요 기능
-- 수집한 시에서 **레이블을 추출**하여, 이를 기반으로 시를 **다중 레이블 분류**합니다.
-- 사용자가 **편지를 입력**하면, **AI가 내용을 분석**해서 알맞은 키워드들로 이루어진 **시집을 큐레이팅** 해 줍니다.
-- 사용자는 **AI가 추천한 꽃말들** 중 하나를 선택해 표지를 꾸밀 수 있습니다.
-- **폰트와 컬러, 제목** 등 세부 커스터마이징 단계를 거치며 시집의 **외면과 내면을 검토** 할 수 있습니다.
-- 시집이 완성된 후 배송정보와 결제정보를 입력하고 **결제를 완료**하면, 주문 확인 이메일을 받게 됩니다.
+### 주요 기능
+* 수집한 시에서 **레이블을 추출**하여, 이를 기반으로 시를 **다중 레이블 분류**합니다.
+* 사용자가 **편지를 입력**하면, **AI가 내용을 분석**해서 알맞은 키워드들로 이루어진 **시집을 큐레이팅** 해 줍니다.
+* 사용자는 **AI가 추천한 꽃말들** 중 하나를 선택해 표지를 꾸밀 수 있습니다.
+* **폰트와 컬러, 제목** 등 세부 커스터마이징 단계를 거치며 시집의 **외면과 내면을 검토** 할 수 있습니다.
+* 시집이 완성된 후 배송정보와 결제정보를 입력하고 **결제를 완료**하면, 주문 확인 이메일을 받게 됩니다.
 
-### 사용 스택 & 아키텍쳐
+## 사용 스택 & 아키텍쳐
 
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e179b591-0324-4a7a-87c9-384e466d7c76/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T101538Z&X-Amz-Expires=86400&X-Amz-Signature=d8000791a17c0952a964cc2a21718f83c43d02d5363ec033a810f72ed7b8901c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" alt="drawing" width="700"/>
 
-**FRONT** : `React` `Redux` `styled-components` `Chakra UI axios` `Figma (Wireframe)`
-
-**BACK**
-
-- MySQL
-- SQLAlchemy
-- MongoDB
-- Beanie ODM
-- FastAPI
-- FastAPI-Mail
-- Bcrypt
-
-**AI**
-
-- KoNLPy
-- LDA
-- KoBERT
-
-**DEPLOY**
-
-- MongoDB Atlas
-- Amazon RDS
-- Azure VM
-- NGINX
+* **FRONT** : `React` `Redux` `styled-components` `Chakra UI axios` `Figma (Wireframe)`
+* **BACK** : `MySQL` `SQLAlchemy` `MongoDB` `Beanie ODM` `FastAPI` `FastAPI-Mail` `Bcrypt`
+* **AI** : `KoNLPy` `LDA` `KoBERT`
+* **DEPLOY**: `MongoDB Atlas` `Amazon RDS` `GCP` `Docker` `Docker-Compose` `Ngnix`
 
 ## Wireframe
 
