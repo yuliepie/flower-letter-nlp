@@ -5,6 +5,10 @@
 <p align="center">
     <em>🌷 소중한 사람에게 선물하는 나만의 커스텀 시집, 꽃편지가 만들어드려요.</em>
 </p>
+=======
+## 1. Intro
+
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e0e54647-9b44-4e0c-b55b-424f2521110a/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T095149Z&X-Amz-Expires=86400&X-Amz-Signature=3befc0a056f6cdce498d2861dbec66f399e783a51fd25d84cf13e3c35971e1aa&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" alt="drawing" width="500"/>
 
 ---
 - **프로젝트 명**: 꽃편지
