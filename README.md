@@ -49,7 +49,8 @@
 
 ## 기능 데모
 
-12/14 데모데이 전까지 추가 예정
+https://user-images.githubusercontent.com/83994215/152902656-8c524be2-2795-45ed-8ef2-833a1523abf0.mp4
+
 
 ## Our Team
 <details>
