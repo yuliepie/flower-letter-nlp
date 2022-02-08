@@ -33,7 +33,7 @@
 
 ## 사용 스택 & 아키텍쳐
 
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e179b591-0324-4a7a-87c9-384e466d7c76/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T101538Z&X-Amz-Expires=86400&X-Amz-Signature=d8000791a17c0952a964cc2a21718f83c43d02d5363ec033a810f72ed7b8901c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" alt="drawing" width="auto"/>
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e179b591-0324-4a7a-87c9-384e466d7c76/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220208%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220208T022627Z&X-Amz-Expires=86400&X-Amz-Signature=26dd6e1d26240fad4053cc73b176bd3a1efe55d4be4f360de520c66a2aca37a0&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252Fe179b591-0324-4a7a-87c9-384e466d7c76%252FUntitled.png%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220204%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220204T031905Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D0d6c9a5506b2087e2c6fb4cb7a9cc3760ca535db2dd7859a4684036d305c6447%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Untitled.png%252522%2526x-id%253DGetObject%22&x-id=GetObject" alt="drawing" width="auto"/>
 
 * **FRONT** : `React` `Redux` `styled-components` `Chakra UI axios` `Figma (Wireframe)`
 * **BACK** : `MySQL` `SQLAlchemy` `MongoDB` `Beanie ODM` `FastAPI` `FastAPI-Mail` `Bcrypt`
@@ -45,11 +45,14 @@
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/aada8724-d943-4b65-89cc-7a86790fd8fa/Mind_Map.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T104656Z&X-Amz-Expires=86400&X-Amz-Signature=e9bd1eed378887da9c101b8f3a319a2b590f813abeaea00d318dbd16b7bd921b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Mind%2520Map.jpeg%22&x-id=GetObject" alt="drawing" width="auto"/>
 
 <strong>🌘  Server Side Flow Chart</strong>
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/031d057c-d8ec-4e5d-8073-201e7fd47d00/Server-Flowchart.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220203%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220203T104713Z&X-Amz-Expires=86400&X-Amz-Signature=709c62e19f74bd20bbf412e62b8ed70b35b41f1ab913f25cbbe68a0987449eee&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Server-Flowchart.jpeg%22&x-id=GetObject" alt="drawing" width="auto"/>
+<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/031d057c-d8ec-4e5d-8073-201e7fd47d00/Server-Flowchart.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220208%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220208T022646Z&X-Amz-Expires=86400&X-Amz-Signature=5a4493bf936a552bc57b770dbdfec6de010c07f70df92541880cf81f473fe399&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22https%253A%252F%252Fs3.us-west-2.amazonaws.com%252Fsecure.notion-static.com%252F031d057c-d8ec-4e5d-8073-201e7fd47d00%252FServer-Flowchart.jpeg%253FX-Amz-Algorithm%253DAWS4-HMAC-SHA256%2526X-Amz-Content-Sha256%253DUNSIGNED-PAYLOAD%2526X-Amz-Credential%253DAKIAT73L2G45EIPT3X45%25252F20220204%25252Fus-west-2%25252Fs3%25252Faws4_request%2526X-Amz-Date%253D20220204T031543Z%2526X-Amz-Expires%253D86400%2526X-Amz-Signature%253D3278c64bb8a8243df879eda87562182f05a38203472d92fef20c39b405a11ab6%2526X-Amz-SignedHeaders%253Dhost%2526response-content-disposition%253Dfilename%252520%25253D%252522Server-Flowchart.jpeg%252522%2526x-id%253DGetObject%22&x-id=GetObject" alt="drawing" width="auto"/>
 
 ## 기능 데모
 
-https://user-images.githubusercontent.com/83994215/152902656-8c524be2-2795-45ed-8ef2-833a1523abf0.mp4
+
+
+
+https://user-images.githubusercontent.com/83994215/152906073-8e8c6591-666c-4550-8ae2-687ebcf918ee.mp4
 
 
 ## Our Team
