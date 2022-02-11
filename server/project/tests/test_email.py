@@ -18,7 +18,7 @@ async def test_send_email(test_app_with_db):
         "박영희",
         "06808",
         "서울시 강남구",
-        "yuliekorea@gmail.com",
+        "aaaaa@gmail.com",
         "12341234",
         "61b3082db71812f01331ef67",
     )
